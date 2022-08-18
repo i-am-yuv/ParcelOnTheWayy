@@ -2,3 +2,11 @@
     background-color: lightseagreen;
 }
 
+
+.container
+{
+    background-color: lightseagreen;
+    margin: 50px auto;
+    width: 50%;
+
+}

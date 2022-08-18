@@ -16,6 +16,8 @@ import { OrdersComponent } from './traveller/orders/orders.component';
 import { AdduserComponent } from './user/adduser/adduser.component';
 import { AddTravellerComponent } from './traveller/add-traveller/add-traveller.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +36,7 @@ import { AddTravellerComponent } from './traveller/add-traveller/add-traveller.c
   imports: [
     BrowserModule,
     AppRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
