@@ -10,6 +10,7 @@ import { TravellerProfileComponent } from './traveller/traveller-profile/travell
 import { TravellerComponent } from './traveller/traveller/traveller.component';
 import { AdduserComponent } from './user/adduser/adduser.component';
 import { ProfileComponent } from './user/profile/profile.component';
+import { SearchComponent } from './user/search/search.component';
 import { UserComponent } from './user/user/user.component';
 
 
@@ -25,6 +26,7 @@ const routes: Routes = [
  { path :"user/traveller/travellerProfile" , component:TravellerProfileComponent },
  { path : "user/traveller/orders" , component:OrdersComponent },
  {path:"user/addUser" , component:AdduserComponent },
+ {path:"user/search" , component:SearchComponent },
  {path:"user/traveller/addTravellerDetails" , component:AddTravellerComponent }
 ];
 

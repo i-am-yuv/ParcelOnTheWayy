@@ -1,0 +1,44 @@
+
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/user">Parcel On The Way</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="waves-effect waves-light btn" aria-current="page" routerLink="/user">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <form class="row g-3">
+        <h1 style="text-align:center">Search Travel </h1>
+        <div class="col-md-6">
+            <label for="input4" class="form-label">Starting Point</label>
+            <input type="text" class="form-control" id="input4">
+        </div>
+        <div class="col-md-6">
+            <label for="input5" class="form-label">Destination</label>
+            <input type="text" class="form-control" id="input5">
+        </div>
+        <div class="col-md-4">
+            <label for="inputNum" class="form-label">No. of Travellers</label>
+            <input type="number" class="form-control" id="inputNum">
+        </div>
+        <div class="col-md-8">
+            <label for="inputdate" class="form-label">Date</label>
+            <input type="datetime-local" class="form-control" id="inputNum">
+        </div>
+        <div class="col-12" style="text-align:center ; margin-bottom: 15px;">
+            <button type="button" class="btn btn-primary ">Search</button>
+            <button type="button" class="btn btn-primary" routerLink="/user" style="margin-left:10px">Back</button>
+        </div>
+    </form>
+
+</div>
