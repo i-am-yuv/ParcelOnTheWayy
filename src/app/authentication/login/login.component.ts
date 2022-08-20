@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignUp } from 'src/app/SignUp';
-
+import { NgToastService } from 'ng-angular-popup';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit
 
  signupObj : SignUp = new SignUp() ;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private toast: NgToastService ) { }
 
   ngOnInit(): void {
     this.loginValues = this.formBuilder.group(
@@ -39,12 +39,13 @@ export class LoginComponent implements OnInit
         res => 
         {
             console.log(res) ;
-            alert("Welcome to the Application");
+            this.toast.success({detail:"SUCCESS",summary:'Login Successfully',duration:2000});
+
             this.loginValues.reset();
             this.router.navigate(["user"]);
         }
         , err => {
-          alert("User Not Found") ; 
+          this.toast.error({detail:"ERROR",summary:'User Not Found',duration:5000});
         }
       )
   }
