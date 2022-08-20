@@ -22,11 +22,11 @@ const routes: Routes = [
  { path:"user" , component:UserComponent},
  { path:"user/profile" , component:ProfileComponent},
  { path:"user/traveller" , component:TravellerComponent },
+ {path:"user/search" , component:SearchComponent },
+ {path:"user/addUser" , component:AdduserComponent },
  {path:"user/traveller/createTransaction" , component:CreateTransactionComponent } ,
  { path :"user/traveller/travellerProfile" , component:TravellerProfileComponent },
  { path : "user/traveller/orders" , component:OrdersComponent },
- {path:"user/addUser" , component:AdduserComponent },
- {path:"user/search" , component:SearchComponent },
  {path:"user/traveller/addTravellerDetails" , component:AddTravellerComponent }
 ];
 

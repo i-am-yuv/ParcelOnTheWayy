@@ -17,8 +17,6 @@ import { AdduserComponent } from './user/adduser/adduser.component';
 import { AddTravellerComponent } from './traveller/add-traveller/add-traveller.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
