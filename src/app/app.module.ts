@@ -17,6 +17,9 @@ import { AdduserComponent } from './user/adduser/adduser.component';
 import { AddTravellerComponent } from './traveller/add-traveller/add-traveller.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +38,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule 
+    BrowserAnimationsModule ,
+    ReactiveFormsModule,
+    HttpClientModule
     
   ],
   providers: [],

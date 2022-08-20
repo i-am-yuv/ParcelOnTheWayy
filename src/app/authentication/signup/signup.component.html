@@ -25,17 +25,22 @@
                     <h6 style="color:  darkslategray"  >Register Yourself!!</h6>
                 </div>
                 <form >
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label" style="color:darkslategray">Email address</label>
-                          <input  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                          <div id="emailHelp" class="form-text"  style="color:darkslategray" >We'll never share your email with anyone else.</div>
-                          </div>
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label" style="color:darkslategray" >Password</label>
-                          <input  type="password" class="form-control" id="exampleInputPassword1">
-                           </div>
-                        <button type="submit" class="btn btn-primary">SingUp</button>
+                  <form [formGroup] ="signupValues"  (ngSubmit) = "signUp()">
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label" style="color:darkslategray">E-mail address</label>
+                      <input formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <div id="emailHelp" class="form-text"  style="color:darkslategray" >We'll never share your email with anyone else.</div>
+                      <span class="text-danger" *ngIf="signupValues.controls['email'].dirty && signupValues.hasError( 'required' , 'email') ">*E-mail Id is required.</span>  
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label" style="color:darkslategray" >Password</label>
+                      <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+                      <span class="text-danger" *ngIf="signupValues.controls['password'].dirty && signupValues.hasError( 'required' , 'password') ">*Password is required.</span>  
+                    </div>
+                    <button type="submit" [disabled] = "!signupValues.valid" class="btn btn-primary">SingUp</button>
                 </form>
+                </form>
+               
                 <a style="color:darkslategray ; text-align: end; margin-top : 8px ; text-decoration: none; " routerLink="/login"> Already registered ? Click here to Login!!</a>
             </div>
   </div>

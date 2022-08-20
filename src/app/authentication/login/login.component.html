@@ -25,15 +25,21 @@
                     <h6 style="color: darkslategray ; margin-bottom: 10%;"  >Please enter your E-mail ID and password</h6>
                 </div>
                 <form >
-                        <div class="mb-3">
-                          <input placeholder="E-mail" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                          <div id="emailHelp" class="form-text"  style="color:darkslategray" >We'll never share your email with anyone else.</div>
-                           </div>
-                        <div class="mb-3">
-                          <input placeholder="Password" type="password" class="form-control" id="exampleInputPassword1">
-                         </div>
-                        <button type="submit"  class="btn btn-primary">Login</button>
+
+                  <form  [formGroup] ="loginValues"  (ngSubmit)= "login()" >
+                    <div class="mb-3">
+                      <input formControlName="email"  placeholder="E-mail" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <span class="text-danger" *ngIf="loginValues.controls['email'].dirty && loginValues.hasError( 'required' , 'email') ">*E-mail Id is required.</span>    
+                    </div>
+                    <div class="mb-3">
+                      <input formControlName="password" placeholder="Password" type="password" class="form-control" id="exampleInputPassword1">
+                      <span class="text-danger" *ngIf="loginValues.controls['password'].dirty && loginValues.hasError( 'required' , 'password') ">*Password Id is required.</span>  
+                    </div>
+                    <button type="submit"  [disabled] = "!loginValues.valid" class="btn btn-primary">Login</button>
+               </form>
+
                 </form>
+               
                 <a style="color:darkslategray; text-align: end; margin-top : 8px ; text-decoration: none;" routerLink="/signUp">New User ? Click here to SignUp!!</a>
             </div>
 </div>
