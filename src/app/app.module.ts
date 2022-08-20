@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchComponent } from './user/search/search.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     TravellerProfileComponent,
     OrdersComponent,
     AdduserComponent,
-    AddTravellerComponent
+    AddTravellerComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

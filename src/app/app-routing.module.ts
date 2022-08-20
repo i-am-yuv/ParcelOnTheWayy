@@ -11,6 +11,7 @@ import { TravellerComponent } from './traveller/traveller/traveller.component';
 import { AdduserComponent } from './user/adduser/adduser.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { SearchComponent } from './user/search/search.component';
+
 import { UserComponent } from './user/user/user.component';
 
 
