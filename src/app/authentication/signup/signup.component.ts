@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient} from '@angular/common/http'
+import { HttpClient, HttpResponse} from '@angular/common/http'
 import { FormGroup , FormBuilder , Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -30,15 +30,15 @@ export class SignupComponent implements OnInit {
 
   signUp()
   {
-       this.http.post<any>(  `${this.apiUrl}/signUp`  , this.signupValues.value )
+       this.http.post<any>(  `${this.apiUrl}/signUp`  , this.signupValues.value ).pipe()
        .subscribe(
         res=>{
           this.toast.success({detail:"SUCCESS",summary:"Sign Up Successfully" ,duration:5000});
-               this.signupValues.reset() ;
-               this.router.navigate( ["login"] ) ;
+          this.signupValues.reset() ;
+          this.router.navigate( ["login"] ) ;
         },
         err=>{
-          this.toast.warning({detail:"WARN",summary:'User Already Exists',duration:5000}); 
+          this.toast.warning({detail:"WARN",summary:"User Already Exists",duration:5000}); 
         }
        )
   }

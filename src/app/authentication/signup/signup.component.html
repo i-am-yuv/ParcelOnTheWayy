@@ -33,10 +33,11 @@
                       <span class="text-danger" *ngIf="signupValues.controls['email'].dirty && signupValues.hasError( 'required' , 'email') ">*E-mail Id is required.</span>  
                     </div>
                     <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label" style="color:darkslategray" >Password</label>
-                      <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+                      <label for="exampleInputPassword" class="form-label" style="color:darkslategray" >Password</label>
+                      <input formControlName="password" type="password" class="form-control" id="exampleInputPassword">
                       <span class="text-danger" *ngIf="signupValues.controls['password'].dirty && signupValues.hasError( 'required' , 'password') ">*Password is required.</span>  
                     </div>
+                      
                     <button type="submit" [disabled] = "!signupValues.valid" class="btn btn-primary">SingUp</button>
                 </form>
                 </form>
