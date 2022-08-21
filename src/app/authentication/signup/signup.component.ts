@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
 
   signUp()
   {
-       this.http.post<any>(  `${this.apiUrl}/signUp`  , this.signupValues.value ).pipe()
+       this.http.post<any>(  `${this.apiUrl}/signUp`  , this.signupValues.value )
        .subscribe(
         res=>{
           this.toast.success({detail:"SUCCESS",summary:"Sign Up Successfully" ,duration:5000});

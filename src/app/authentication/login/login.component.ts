@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit
       .subscribe(
         res => 
         {
-            console.log(res) ;
+            sessionStorage.setItem('loginId' , res.id) ;
             this.toast.success({detail:"SUCCESS",summary:'Login Successfully',duration:2000});
 
             this.loginValues.reset();

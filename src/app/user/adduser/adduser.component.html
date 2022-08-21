@@ -17,23 +17,23 @@
 </nav>
 
 <div class="container">
-    <form class="row g-3">
+    <form class="row g-3" [formGroup] ="formValues"  (ngSubmit)="addUser()" >
         <h1 style="text-align:center">User Details</h1>
         <div class="col-md-6">
             <label for="input4" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="input4">
+            <input formControlName="firstName" type="text" class="form-control" id="input4">
         </div>
         <div class="col-md-6">
             <label for="input5" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="input5">
+            <input  formControlName="lastName" type="text" class="form-control" id="input5">
         </div>
         <div class="col-md-12">
             <label for="formGroupExampleInput" class="form-label">Phone Number</label>
-            <input type="number" class="form-control" id="formGroupExampleInput">
+            <input formControlName="mobileNo" type="number" class="form-control" id="formGroupExampleInput">
         </div>
         <div class="col-md-4">
             <label for="inputState" class="form-label">State</label>
-            <select id="inputState" class="form-select">
+            <select formControlName="state" id="inputState" class="form-select">
                 <option value="Andhra Pradesh">Andhra Pradesh</option>
                 <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                 <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -74,25 +74,26 @@
         </div>
         <div class="col-md-4">
             <label for="inputCity" class="form-label">City</label>
-            <input type="text" class="form-control" id="inputCity">
+            <input formControlName="city" type="text" class="form-control" id="inputCity">
         </div>
         <div class="col-md-4">
             <label for="inputZip" class="form-label">Pincode</label>
-            <input type="text" class="form-control" id="inputZip">
+            <input formControlName="pincode" type="text" class="form-control" id="inputZip">
         </div>
         <div class="col-6">
             <label for="inputStreet" class="form-label">Street</label>
-            <input type="text" class="form-control" id="inputStreet" placeholder=" Street Number">
+            <input formControlName="street" type="text" class="form-control" id="inputStreet" placeholder=" Street Number">
         </div>
         <div class="col-6">
             <label for="inputAddress2" class="form-label">Landmark</label>
-            <input type="text" class="form-control" id="inputAddress2" >
+            <input formControlName="landmark" type="text" class="form-control" id="inputAddress2" >
         </div>
       
-         <input formControlName="id" value="24" >
+         <input formControlName="id" value="1" type="hidden">
+         <input formControlName="AdressID" value="24" type="hidden">
 
         <div class="col-12" style="text-align:center ; margin-bottom: 15px;">
-            <button type="button" class="btn btn-primary ">Save</button>
+            <button type="submit" [disabled] = "!formValues.valid" class="btn btn-primary" >Save</button>
             <button type="button" class="btn btn-primary" routerLink="/user" style="margin-left:10px">Back</button>
         </div>
     </form>
