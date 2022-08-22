@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, resolveForwardRef } from '@angular/core';
 import { HttpClient, HttpResponse} from '@angular/common/http'
 import { FormGroup , FormBuilder , Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { NgToastService } from 'ng-angular-popup';
 import { User } from 'src/app/User';
 import { Address } from 'src/app/Address';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-adduser',
@@ -41,34 +42,42 @@ export class AdduserComponent implements OnInit {
   addressObj : Address = new Address() ;
 
   
+ 
 
-  addUser()
+ 
+   async addUser()
   {
     this.addressObj.city = this.formValues.value.city ;
     this.addressObj.landmark = this.formValues.value.landmark ;
-    this.addressObj.pincode = Number(this.formValues.value.pincode)  ;
+    this.addressObj.pincode = Number(this.formValues.value.pincode) ;
     this.addressObj.state = this.formValues.value.state ;
     this.addressObj.street = this.formValues.value.street  ;
-       
-    this.http.post<any>(  `${this.apiUrl}/address/add`  , this.addressObj ).subscribe(
+      
+    console.log( "should be first") ;
+    
+     this.http.post<any>(  `${this.apiUrl}/address/add`  , this.addressObj ).subscribe(
       res => 
       {
           console.log( " Address Id given By Address Table")
           console.log(res.addressId ) ;
           sessionStorage.setItem('IdOfAddress', res.addressId ) ;
+          this.addUser1() ;
       }
       , err => {
         this.toast.error({detail:"ERROR",summary:'Something Went wrong in Address',duration:5000});
       }
     )
+  }
 
-
+   addUser1()
+  {
     this.userObj.id = Number( sessionStorage.getItem('loginId') ) ;
     this.userObj.firstName = this.formValues.value.firstName;
     this.userObj.lastName = this.formValues.value.lastName;
     this.userObj.mobileNo = this.formValues.value.mobileNo;
     this.userObj.addressId =  Number(sessionStorage.getItem('IdOfAddress'))   ;
     
+    console.log( "addressId in session "  +sessionStorage.getItem('IdOfAddress')) ;
     console.log( "Adress Id in User Table" +this.userObj.addressId ) ;
 
     this.http.post<any>(  `${this.apiUrl}/user/add`  , this.userObj ).subscribe(
@@ -83,7 +92,7 @@ export class AdduserComponent implements OnInit {
         this.toast.error({detail:"ERROR",summary:'Something Went wrong',duration:5000});
       }
     )
-
   }
   
 }
+
