@@ -1,38 +1,51 @@
 <nav class="navbar navbar-expand-lg ">
-    <div class="container-fluid">
+  <div class="container-fluid">
       <a class="navbar-brand" routerLink="/user">Parcel On The Way</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="waves-effect waves-light btn" aria-current="page" routerLink="/user/traveller">Traveller</a>
-          </li>
-        </ul>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="waves-effect waves-light btn" aria-current="page" routerLink="/user">Home</a>
+              </li>
+          </ul>
       </div>
-    </div>
-  </nav>
+  </div>
+</nav>
 
+<div class="container">
+  <form class="row g-3">
+    <h1 style="text-align:center">Order Details</h1>
 
-<!------- Order list  ------>
-
-
-<div class="container" >
-    <h1 style="text-align:center ; margin-bottom: 25px ;text-decoration: underline;color:
-     darkslategray ;margin-top:15px;" > Your Pending Order</h1>
-  
-
+      <div class="col-md-6">
+          <input type="text" class="form-control" id="input1" placeholder="Order Id">
+      </div>
+      <div class="col-md-6">
+          <input type="text" class="form-control" id="input2" placeholder="Traveller Id">
+      </div>
+      <div class="col-md-12">
+          <input type="text" class="form-control" id="input3" placeholder="User Id">
+      </div>
+      <div class="col-md-6">
+          <input type="text" class="form-control" id="input4" placeholder="Start Location">
+      </div>
+      <div class="col-md-6">
+          <input type="text" class="form-control" id="input5" placeholder="Destination Location">
+      </div>
+      <div class="col-md-6">
+          <input type="text" class="form-control" id="input6" placeholder="Mode Of Travel">
+      </div>
+      <div class="col-md-6">
+          <input type="text" class="form-control" id="input7" placeholder="Order Status">
+      </div>
+      <div class="col-md-2" style="text-align:center ; margin-bottom: 15px;">
+          <button type="button" class="btn btn-primary ">Submit</button>
+      </div>
+  </form>
 
 </div>
 
 
 
-    
-  <!-- Notification for no employees -->
-<div class="col-lg-12 col-md-12 col-xl-12" style="margin-top:30px" >
-    <div class="alert alert-info" role="alert">
-      <h4 class="alert-heading">No pending Orders!</h4>
-      <p>No pending Orders were found.</p>
-    </div>
-  </div>
