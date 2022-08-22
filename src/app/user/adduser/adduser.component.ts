@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 import { NgToastService } from 'ng-angular-popup';
 import { User } from 'src/app/User';
 import { Address } from 'src/app/Address';
-import { delay } from 'rxjs';
+
 
 @Component({
   selector: 'app-adduser',
@@ -53,7 +53,7 @@ export class AdduserComponent implements OnInit {
     this.addressObj.state = this.formValues.value.state ;
     this.addressObj.street = this.formValues.value.street  ;
       
-    console.log( "should be first") ;
+   
     
      this.http.post<any>(  `${this.apiUrl}/address/add`  , this.addressObj ).subscribe(
       res => 
@@ -77,13 +77,11 @@ export class AdduserComponent implements OnInit {
     this.userObj.mobileNo = this.formValues.value.mobileNo;
     this.userObj.addressId =  Number(sessionStorage.getItem('IdOfAddress'))   ;
     
-    console.log( "addressId in session "  +sessionStorage.getItem('IdOfAddress')) ;
-    console.log( "Adress Id in User Table" +this.userObj.addressId ) ;
-
     this.http.post<any>(  `${this.apiUrl}/user/add`  , this.userObj ).subscribe(
       res => 
       {
-        console.log(res) ;
+          console.log(res) ;
+          sessionStorage.setItem('userID' , res.userid) ;
           this.toast.success({detail:"SUCCESS",summary:'User Added Successfully',duration:2000});
           this.formValues.reset();
           this.router.navigate(["user"]);

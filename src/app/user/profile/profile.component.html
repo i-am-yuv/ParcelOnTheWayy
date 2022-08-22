@@ -20,27 +20,30 @@
 
 <div class="container">
     <form class="row g-3">
-        <h1 style="text-align:center">Add User Details</h1>
+        <h1 style="text-align:center">Add User Details </h1>
         <div class="col-md-6">
-            <label for="input4" class="form-label">First Name</label>
+            <label for="input4" class="form-label">First Name : {{this.userObj.firstName}}</label>
             </div>
         <div class="col-md-6">
-            <label for="input5" class="form-label">Last Name</label>
+            <label for="input5" class="form-label">Last Name : {{this.userObj.lastName}}</label>
            </div>
-        <div class="col-md-12">
-            <label for="formGroupExampleInput" class="form-label">Phone Number</label>
+        <div class="col-md-6">
+            <label for="formGroupExampleInput" class="form-label">Phone Number : {{this.userObj.mobileNo}}</label>
           </div>
-        <div class="col-md-4">
-            <label for="inputState" class="form-label">State</label>
+        <div class="col-md-6">
+            <label for="inputState" class="form-label">State : {{this.addressObj.state}} </label>
         </div>
-        <div class="col-md-4">
-            <label for="inputCity" class="form-label">City</label>
+        <div class="col-md-6">
+            <label for="inputCity" class="form-label">City : {{this.addressObj.city}}</label>
            </div>
-        <div class="col-md-4">
-            <label for="inputZip" class="form-label">Pincode</label>
+        <div class="col-md-6">
+            <label for="inputZip" class="form-label">Pincode : {{this.addressObj.pincode}}</label>
             </div>
-        <div class="col-12">
-            <label for="inputAddress2" class="form-label">Landmark</label>
+            <div class="col-6">
+                <label for="inputAddress2" class="form-label">Street : {{this.addressObj.street}}</label>
+              </div>
+        <div class="col-6">
+            <label for="inputAddress2" class="form-label">Landmark : {{this.addressObj.landmark}}</label>
           </div>
           <div class="col-12" style="text-align:center ; margin-bottom: 15px;">
             <button type="button" class="btn btn-primary ">Edit</button>
