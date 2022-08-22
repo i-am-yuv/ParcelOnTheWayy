@@ -82,6 +82,7 @@ export class AdduserComponent implements OnInit {
       {
           console.log(res) ;
           sessionStorage.setItem('userID' , res.userid) ;
+          sessionStorage.setItem('profileV','true') ;
           this.toast.success({detail:"SUCCESS",summary:'User Added Successfully',duration:2000});
           this.formValues.reset();
           this.router.navigate(["user"]);

@@ -25,12 +25,8 @@ export class ProfileComponent implements OnInit {
   constructor(private formBuilder : FormBuilder , private http : HttpClient , private router : Router , private toast: NgToastService) { }
 
   ngOnInit(): void {
-    console.log( " working") ;
-    console.log( sessionStorage.getItem('userID') ) ;
-       this.populateProfile() ; 
+         this.populateProfile() ; 
   }
-
-
    populateProfile()
    {
     this.http.get<any>(  `${this.apiUrl}/viewUser/`+sessionStorage.getItem('userID') ).subscribe(
@@ -41,11 +37,10 @@ export class ProfileComponent implements OnInit {
           this.userObj.mobileNo = res.mobileNo ;
       }
       , err => {
-        this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});
+        // this.toast.error({detail:"ERROR",summary:'Add User Info',duration:5000});
+        console.log(err) ;
       }
     )
-
-
       this.http.get<any>(  `${this.apiUrl}/address/`+sessionStorage.getItem('IdOfAddress') ).subscribe(
       res1 => 
       {
@@ -56,10 +51,36 @@ export class ProfileComponent implements OnInit {
           this.addressObj.street = res1.street ;
       }
       , err => {
-        this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});
+        // this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});
+        console.log(err) ;
       }
     )
+   }
 
+   deleteUser()
+   {
+    this.http.delete<any>( `${this.apiUrl}/address/`+sessionStorage.getItem('IdOfAddress') ).subscribe(
+      res => 
+      {
+        console.log(res) ;
+      }
+      , err => {
+        // this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});
+        console.log(err) ;
+      }
+    )
+    this.http.delete<any>(  `${this.apiUrl}/user/`+sessionStorage.getItem('userID') ).subscribe(
+      res => 
+      {
+        console.log(res) ;
+        this.toast.success( {detail:"SUCCESS",summary:'User Deleted Successfully',duration:2000}  );
+        this.router.navigate(["user"]);
+      }
+      , err => {
+        // this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});
+        console.log( err) ;
+      }
+    )
    }
 
 }
