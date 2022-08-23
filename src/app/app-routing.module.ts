@@ -5,6 +5,7 @@ import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { AddTravellerComponent } from './traveller/add-traveller/add-traveller.component';
 import { CreateTransactionComponent } from './traveller/create-transaction/create-transaction.component';
+import { EditUserTravellerComponent } from './traveller/edit-user-traveller/edit-user-traveller.component';
 import { OrdersComponent } from './traveller/orders/orders.component';
 import { TravellerProfileComponent } from './traveller/traveller-profile/traveller-profile.component';
 import { TravellerComponent } from './traveller/traveller/traveller.component';
@@ -30,7 +31,8 @@ const routes: Routes = [
  { path :"user/traveller/travellerProfile" , component:TravellerProfileComponent },
  { path : "user/traveller/orders" , component:OrdersComponent },
  {path:"user/traveller/addTravellerDetails" , component:AddTravellerComponent },
- {path:"user/profile/edit" , component:EdituserComponent }
+ {path:"user/profile/edit" , component:EdituserComponent },
+ {path:"user/traveller/travellerProfile/edit" , component:EditUserTravellerComponent}
 ];
 
 @NgModule({

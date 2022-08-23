@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './user/search/search.component';
 import { NgToastModule } from 'ng-angular-popup';
 import { EdituserComponent } from './user/edituser/edituser.component';
+import { EditUserTravellerComponent } from './traveller/edit-user-traveller/edit-user-traveller.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { EdituserComponent } from './user/edituser/edituser.component';
     AdduserComponent,
     AddTravellerComponent,
     SearchComponent,
-    EdituserComponent
+    EdituserComponent,
+    EditUserTravellerComponent
   ],
   imports: [
     BrowserModule,
