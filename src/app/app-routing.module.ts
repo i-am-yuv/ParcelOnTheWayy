@@ -9,6 +9,7 @@ import { OrdersComponent } from './traveller/orders/orders.component';
 import { TravellerProfileComponent } from './traveller/traveller-profile/traveller-profile.component';
 import { TravellerComponent } from './traveller/traveller/traveller.component';
 import { AdduserComponent } from './user/adduser/adduser.component';
+import { EdituserComponent } from './user/edituser/edituser.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { SearchComponent } from './user/search/search.component';
 
@@ -28,7 +29,8 @@ const routes: Routes = [
  {path:"user/traveller/createTransaction" , component:CreateTransactionComponent } ,
  { path :"user/traveller/travellerProfile" , component:TravellerProfileComponent },
  { path : "user/traveller/orders" , component:OrdersComponent },
- {path:"user/traveller/addTravellerDetails" , component:AddTravellerComponent }
+ {path:"user/traveller/addTravellerDetails" , component:AddTravellerComponent },
+ {path:"user/profile/edit" , component:EdituserComponent }
 ];
 
 @NgModule({

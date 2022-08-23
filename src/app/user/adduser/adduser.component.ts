@@ -85,10 +85,11 @@ export class AdduserComponent implements OnInit {
           sessionStorage.setItem('profileV','true') ;
           this.toast.success({detail:"SUCCESS",summary:'User Added Successfully',duration:2000});
           this.formValues.reset();
+          sessionStorage.setItem( 'addBtnVisible' , 'false' ) ;
           this.router.navigate(["user"]);
       }
       , err => {
-        this.toast.error({detail:"ERROR",summary:'Something Went wrong',duration:5000});
+        this.toast.error({detail:"Your Details Are Already Filled",summary:'Please delete your current details to add new',duration:5000});
       }
     )
   }

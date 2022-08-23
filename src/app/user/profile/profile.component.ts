@@ -74,6 +74,7 @@ export class ProfileComponent implements OnInit {
       {
         console.log(res) ;
         this.toast.success( {detail:"SUCCESS",summary:'User Deleted Successfully',duration:2000}  );
+        sessionStorage.setItem( 'addBtnVisible' , 'true' ) ;
         this.router.navigate(["user"]);
       }
       , err => {
