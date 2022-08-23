@@ -81,7 +81,6 @@ export class EdituserComponent implements OnInit {
 
   updateUser()
   {
-
     this.addressObj.city = this.formValue.value.city ;
     this.addressObj.landmark = this.formValue.value.landmark ;
     this.addressObj.pincode = Number(this.formValue.value.pincode) ;

@@ -16,7 +16,7 @@ export class UserComponent implements OnInit {
     if( sessionStorage.getItem('addBtnVisible') === 'false' )
     {
       (<HTMLInputElement> document.getElementById("addBtn")).disabled = true;
- }
+    }
     else 
     {
       (<HTMLInputElement> document.getElementById("addBtn")).disabled = false ;
