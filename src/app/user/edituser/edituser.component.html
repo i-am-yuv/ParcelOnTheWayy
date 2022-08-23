@@ -17,8 +17,8 @@
 </nav>
 
 <div class="container">
-    <form class="row g-3" [formGroup] ="formValues"  (ngSubmit)="addUser()" >
-        <h1 style="text-align:center">Add User Details</h1>
+    <form class="row g-3" [formGroup] ="formValue"  (ngSubmit)="updateUser()" >
+        <h1 style="text-align:center">Edit User Details</h1>
         <div class="col-md-6">
             <label for="input4" class="form-label">First Name</label>
             <input formControlName="firstName" type="text" class="form-control" id="input4">
@@ -93,8 +93,8 @@
          <input formControlName="AdressID" value="24" type="hidden">
 
         <div class="col-12" style="text-align:center ; margin-bottom: 15px;">
-            <button type="submit" [disabled] = "!formValues.valid" class="btn btn-primary" >Save</button>
-            <button type="button" class="btn btn-primary" routerLink="/user" style="margin-left:10px">Back</button>
+            <button type="submit" [disabled] = "!formValue.valid" class="btn btn-primary" >Save</button>
+            <button type="button" class="btn btn-primary" routerLink="/user/profile" style="margin-left:10px">Back</button>
         </div>
     </form>
 

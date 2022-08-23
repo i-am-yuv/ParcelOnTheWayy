@@ -21,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './user/search/search.component';
 import { NgToastModule } from 'ng-angular-popup';
+import { EdituserComponent } from './user/edituser/edituser.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { NgToastModule } from 'ng-angular-popup';
     OrdersComponent,
     AdduserComponent,
     AddTravellerComponent,
-    SearchComponent
+    SearchComponent,
+    EdituserComponent
   ],
   imports: [
     BrowserModule,
