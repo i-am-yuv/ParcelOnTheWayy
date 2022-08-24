@@ -55,27 +55,19 @@ export class LoginComponent implements OnInit
   populateUSerIdAndAddressId()
   {
     console.log("login id is "+sessionStorage.getItem('loginId') ) ;
-    this.http.get<any>(`${this.apiUrl}/findUser/`+sessionStorage.getItem('loginId') )
+    this.http.get<any>(`${this.apiUrl}/findUser/`+sessionStorage.getItem('loginId') ) 
     .subscribe(
       res => 
       {       console.log(res) ;
               console.log( "In Success for jivesh") ;
+              sessionStorage.setItem('IdOfAddress' , res.addressId ) ;
+              sessionStorage.setItem('userID' , res.userid ) ;
+              sessionStorage.setItem( 'addBtnVisible' , 'false' ) ;
               this.router.navigate(["user"]);
       }
       , error => {
            console.log( "In Error for jivesh") ;
-          //  if( error.message === 'User not exists')
-          //  {
-          //    console.log( "User Not exists") ;
-          //    sessionStorage.setItem( 'addBtnVisible' , 'true' ) ;
-          //  }
-          //  else{
-          //  // console.log( "User exists" +err.userid+" hai") ;
-          //   sessionStorage.setItem('IdOfAddress' , error.addressId ) ;
-          //   sessionStorage.setItem('userID' , error.userid ) ;
-          //   sessionStorage.setItem( 'addBtnVisible' , 'false' ) ;
-          //  }
-          sessionStorage.setItem('userID' , error.userid ) ;
+           sessionStorage.setItem( 'addBtnVisible' , 'true' ) ;
           this.router.navigate(["user"]);
           console.log(error) ;
       }
