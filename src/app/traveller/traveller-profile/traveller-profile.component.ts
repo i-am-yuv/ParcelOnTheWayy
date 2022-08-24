@@ -18,10 +18,18 @@ export class TravellerProfileComponent implements OnInit {
 
   userObj : User = new User() ;
   addressObj : Address = new Address() ;
-
+  btnVisible : Boolean = true ; 
   constructor(private formBuilder : FormBuilder , private http : HttpClient , private router : Router , private toast: NgToastService) { }
 
   ngOnInit(): void {
+    if( sessionStorage.getItem('addBtnVisible') === 'false' )
+    {
+      this.btnVisible = false ;
+    }
+    else 
+    {
+      this.btnVisible = true ;
+    }
     this.populateProfile() ; 
   }
 

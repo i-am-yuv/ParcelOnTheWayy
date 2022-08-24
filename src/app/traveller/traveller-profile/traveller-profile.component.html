@@ -47,9 +47,11 @@
           <label for="inputRating" class="form-label">Rating : 4.6 (Demo Number)</label>
       </div>
         <div class="col-7" style="text-align:center ; margin-bottom: 15px;">
-          <button type="button" class="btn btn-primary" routerLink="/user/traveller/travellerProfile/edit">Edit Traveller Details</button>
-        </div>
-        
+          <button type="button" class="btn btn-primary" routerLink="/user/traveller/travellerProfile/edit" *ngIf=!this.btnVisible>Edit Traveller Details</button>
+          </div>
+          <div class="col-12" style="text-align:center ; margin-bottom: 15px;">
+            <button type="button" class="btn btn-primary" routerLink="/user/addUser" *ngIf=this.btnVisible >Add Your Details</button>
+          </div>
         <hr>
         <div class="col-md-6">
             <label for="inputAadhar" class="form-label">Aadhar Number</label>
