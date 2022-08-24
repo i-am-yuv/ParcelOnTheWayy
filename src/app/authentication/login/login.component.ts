@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit
         email: ['', Validators.required],
         password: ['', Validators.required]
       })
+      
   }
 
   login() 
@@ -38,17 +39,49 @@ export class LoginComponent implements OnInit
       .subscribe(
         res => 
         {
-            sessionStorage.setItem('loginId' , res.id) ;
+            sessionStorage.clear() ;
             this.toast.success({detail:"SUCCESS",summary:'Login Successfully',duration:2000});
-
             this.loginValues.reset();
-            this.router.navigate(["user"]);
+            sessionStorage.setItem('loginId' , res.id) ;
+            this.populateUSerIdAndAddressId() ;
+
         }
         , err => {
           this.toast.error({detail:"ERROR",summary:'User Not Found',duration:5000});
         }
       )
   }
+
+  populateUSerIdAndAddressId()
+  {
+    console.log("login id is "+sessionStorage.getItem('loginId') ) ;
+    this.http.get<any>(`${this.apiUrl}/findUser/`+sessionStorage.getItem('loginId') )
+    .subscribe(
+      res => 
+      {       console.log(res) ;
+              console.log( "In Success for jivesh") ;
+              this.router.navigate(["user"]);
+      }
+      , error => {
+           console.log( "In Error for jivesh") ;
+          //  if( error.message === 'User not exists')
+          //  {
+          //    console.log( "User Not exists") ;
+          //    sessionStorage.setItem( 'addBtnVisible' , 'true' ) ;
+          //  }
+          //  else{
+          //  // console.log( "User exists" +err.userid+" hai") ;
+          //   sessionStorage.setItem('IdOfAddress' , error.addressId ) ;
+          //   sessionStorage.setItem('userID' , error.userid ) ;
+          //   sessionStorage.setItem( 'addBtnVisible' , 'false' ) ;
+          //  }
+          sessionStorage.setItem('userID' , error.userid ) ;
+          this.router.navigate(["user"]);
+          console.log(error) ;
+      }
+    )
+  }
+
 }
 
 
