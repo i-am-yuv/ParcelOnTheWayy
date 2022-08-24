@@ -58,30 +58,40 @@ export class ProfileComponent implements OnInit {
    }
 
    deleteUser()
-   {
-    this.http.delete<any>( `${this.apiUrl}/address/`+sessionStorage.getItem('IdOfAddress') ).subscribe(
-      res => 
-      {
-        console.log(res) ;
-      }
-      , err => {
-        // this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});
-        console.log(err) ;
-      }
-    )
-    this.http.delete<any>(  `${this.apiUrl}/user/`+sessionStorage.getItem('userID') ).subscribe(
-      res => 
-      {
-        console.log(res) ;
-        this.toast.success( {detail:"SUCCESS",summary:'User Deleted Successfully',duration:2000}  );
-        sessionStorage.setItem( 'addBtnVisible' , 'true' ) ;
-        this.router.navigate(["user"]);
-      }
-      , err => {
-        // this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});
-        console.log( err) ;
-      }
-    )
+   { 
+
+    if (confirm("Sure , you want to delete your account") == true) {
+      
+      this.http.delete<any>( `${this.apiUrl}/address/`+sessionStorage.getItem('IdOfAddress') ).subscribe(
+        res => 
+        {
+          console.log(res) ;
+        }
+        , err => {
+          // this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});
+          console.log(err) ;
+        }
+      )
+      this.http.delete<any>(  `${this.apiUrl}/user/`+sessionStorage.getItem('userID') ).subscribe(
+        res => 
+        {
+          console.log(res) ;
+          this.toast.success( {detail:"SUCCESS",summary:'User Deleted Successfully',duration:2000}  );
+          sessionStorage.setItem( 'addBtnVisible' , 'true' ) ;
+          this.router.navigate(["user"]);
+        }
+        , err => {
+          // this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});
+          console.log( err) ;
+        }
+      )
+
+  } else {
+      
+  }
+    
    }
+
+
 
 }
