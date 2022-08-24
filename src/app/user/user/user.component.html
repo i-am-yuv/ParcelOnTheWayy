@@ -29,7 +29,17 @@
    
   </div>
 
-  
+  <div *ngFor="let transaction of transactions">
+    <ul>
+      <li> startLocation :{{ transaction.startLocation}}</li>
+      <li> Destination:{{ transaction.endLocation}}</li>
+      
+      <li> Date of Delivery{{ transaction.deliverDate | date:'yyyy-MM-dd'}}</li>
+      <li> StartTime {{ transaction.startTime}}</li>
+      
+    </ul>
+   
+ </div>
 
   <!-- Notification for no employees -->
 <div class="col-lg-12 col-md-12 col-xl-12">
