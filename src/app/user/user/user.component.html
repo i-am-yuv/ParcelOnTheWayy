@@ -14,7 +14,7 @@
             <button class="waves-effect waves-light btn" routerLink="/user/traveller">Traveller</button>
             <button class="waves-effect waves-light btn" routerLink="/user/addUser" id="addBtn"  *ngIf=this.btnVisible  >Add User</button>
             <button class="waves-effect waves-light btn" routerLink="/user/profile" *ngIf=!this.btnVisible >Profile</button>
-            <button class="waves-effect waves-light btn" routerLink="/login" >Log Out</button>
+            <button class="waves-effect waves-light btn" (click)="logOut()">Log Out</button>
         </form>
       </div>
     </div>
