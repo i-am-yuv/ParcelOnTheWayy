@@ -67,10 +67,10 @@ export class TravellerProfileComponent implements OnInit {
    }
 
    getAadharNo() {
-    this.http.get<any>(  `${this.apiUrl}/traveller/view/`+sessionStorage.getItem('travllerId')).subscribe(
-      res2 => 
+    this.http.get<any>(  `${this.apiUrl}/traveller/view/`+sessionStorage.getItem('travellerId')).subscribe(
+      res => 
       {
-          this.travellerObj.aadharno = res2.aadharno ;
+          this.travellerObj.aadharno = res.aadharno ;
       }
       , err => {
         // this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});

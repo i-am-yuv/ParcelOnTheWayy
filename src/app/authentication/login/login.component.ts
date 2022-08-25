@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit
             this.loginValues.reset();
             sessionStorage.setItem('loginId' , res.id) ;
             this.populateUSerIdAndAddressId() ;
+            this.populateTravellerId() ;
 
         }
         , err => {
@@ -69,6 +70,21 @@ export class LoginComponent implements OnInit
            console.log( "In Error for jivesh") ;
            sessionStorage.setItem( 'addBtnVisible' , 'true' ) ;
           this.router.navigate(["user"]);
+          console.log(error) ;
+      }
+    )
+  }
+
+  populateTravellerId()
+  {
+    this.http.get<any>(`${this.apiUrl}/findTraveller/`+sessionStorage.getItem('loginId') ) 
+    .subscribe(
+      res => 
+      {       console.log(res) ;
+              
+              sessionStorage.setItem('travellerId' , res.travellerId ) ;
+      }
+      , error => {
           console.log(error) ;
       }
     )
