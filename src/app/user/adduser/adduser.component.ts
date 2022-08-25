@@ -81,8 +81,8 @@ export class AdduserComponent implements OnInit {
       res => 
       {
           console.log(res) ;
-          sessionStorage.setItem('userID' , res.userid) ;
-          sessionStorage.setItem('profileV','true') ;
+          sessionStorage.setItem('userID' , res.userid ) ;
+  
           this.toast.success({detail:"SUCCESS",summary:'User Added Successfully',duration:2000});
           this.formValues.reset();
           sessionStorage.setItem( 'addBtnVisible' , 'false' ) ;
