@@ -74,12 +74,14 @@
 						</tr>
 					</tfoot>
 					<tbody>
-						<tr *ngFor="let transaction of transactions | filterAll:searchString">
+						<tr *ngFor="let transaction of transactions | filterAll:searchString" (click)="getVehicleDetails(transaction.vehicleId)">
 							<td>{{transaction.startLocation}}</td>
 							<td>{{transaction.endLocation}}</td>
 							<td>{{transaction.deliverDate | date:'dd-MM-yyyy'}} <sub> ( Time:{{transaction.startTime}} )</sub> </td>
-							<td>{{transaction.vehicleId}}</td>
-              <td>{{transaction.vehicleId}}</td>
+              
+							<td> {{ vehicleDetail.VehicleType}}</td>
+              <td>{{vehicleDetail.AvailableSpace}}</td>
+              
               <td> <a href=""><button>Details</button></a></td>
 						</tr>
           </tbody>

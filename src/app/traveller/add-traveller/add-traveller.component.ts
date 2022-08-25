@@ -62,10 +62,10 @@ export class AddTravellerComponent implements OnInit
 
   addVehicle()
   {
-    this.vehiclerObj.travellerId = Number( sessionStorage.getItem('travellerId') ) ;
-    this.vehiclerObj. vehicleType = this.vehicleValues.value.vehicleType ;
-    this.vehiclerObj. vehicleNo = this.vehicleValues.value.vehicleNo ;
-    this.vehiclerObj.  availableSpace = this.vehicleValues.value.availableSpace ;
+    this.vehiclerObj.TravellerId = Number( sessionStorage.getItem('travellerId') ) ;
+    this.vehiclerObj. VehicleType = this.vehicleValues.value.vehicleType ;
+    this.vehiclerObj. VehicleNo = this.vehicleValues.value.vehicleNo ;
+    this.vehiclerObj.  AvailableSpace = this.vehicleValues.value.availableSpace ;
 
 
     this.http.post<any>(`${this.apiUrl}/vehicle/add` , this.vehiclerObj )

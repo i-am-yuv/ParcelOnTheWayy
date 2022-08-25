@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { Transaction } from 'src/app/Transaction';
+import { Vehicle_add } from 'src/app/Vehicle_add';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -19,6 +20,7 @@ export class UserComponent implements OnInit {
 
   public transactions!:Transaction[];
   public searchString!: string;
+  vehicleDetail: Vehicle_add= new Vehicle_add();
   constructor(private http : HttpClient ,  private router: Router, private toast: NgToastService) { }
 
   ngOnInit(): void 
@@ -51,7 +53,21 @@ getActiveTravellers()
       }
     )
    }
+    getVehicleDetails(vehicleNo:number){
+  this.http.get<Vehicle_add>(  `${this.apiUrl}/getVehicle`+vehicleNo ).subscribe(
+    res => 
+    {
+     // console.log(res);
+      this.vehicleDetail=res;
+      console.log(this.vehicleDetail);
+    }
+    , err => {
+      // this.toast.error({detail:"ERROR",summary:'Add User Info',duration:5000});
+      console.log(err) ;
+    }
+  )
 
+}
 
    logOut()
   {
