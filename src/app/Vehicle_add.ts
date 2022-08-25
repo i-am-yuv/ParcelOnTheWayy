@@ -1,6 +1,6 @@
 export class Vehicle_add{
-    AvailableSpace !: String ;
-    TravellerId !: number;
-    VehicleNo !: String ;
-    VehicleType !:String;
+    availableSpace !: String ;
+    travellerId !: number;
+    vehicleNo !: String ;
+    vehicleType !:String;
 }
