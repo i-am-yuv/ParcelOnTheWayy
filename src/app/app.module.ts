@@ -23,6 +23,7 @@ import { SearchComponent } from './user/search/search.component';
 import { NgToastModule } from 'ng-angular-popup';
 import { EdituserComponent } from './user/edituser/edituser.component';
 import { EditUserTravellerComponent } from './traveller/edit-user-traveller/edit-user-traveller.component';
+import { EditUserTravellerAadharComponent } from './traveller/edit-user-traveller-aadhar/edit-user-traveller-aadhar.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { EditUserTravellerComponent } from './traveller/edit-user-traveller/edit
     AddTravellerComponent,
     SearchComponent,
     EdituserComponent,
-    EditUserTravellerComponent
+    EditUserTravellerComponent,
+    EditUserTravellerAadharComponent
   ],
   imports: [
     BrowserModule,

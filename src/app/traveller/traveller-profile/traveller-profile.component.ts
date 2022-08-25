@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { User } from 'src/app/User';
 import { Address } from 'src/app/Address';
+import { Traveller } from 'src/app/Traveller';
 
 @Component({
   selector: 'app-traveller-profile',
@@ -19,6 +20,7 @@ export class TravellerProfileComponent implements OnInit {
   userObj : User = new User() ;
   addressObj : Address = new Address() ;
   btnVisible : Boolean = true ; 
+  travellerObj : Traveller = new Traveller();
   constructor(private formBuilder : FormBuilder , private http : HttpClient , private router : Router , private toast: NgToastService) { }
 
   ngOnInit(): void {
@@ -31,6 +33,7 @@ export class TravellerProfileComponent implements OnInit {
       this.btnVisible = true ;
     }
     this.populateProfile() ; 
+    this.getAadharNo() ;
   }
 
   populateProfile()
@@ -63,5 +66,17 @@ export class TravellerProfileComponent implements OnInit {
     )
    }
 
+   getAadharNo() {
+    this.http.get<any>(  `${this.apiUrl}/traveller/view/`+sessionStorage.getItem('travllerId')).subscribe(
+      res2 => 
+      {
+          this.travellerObj.aadharno = res2.aadharno ;
+      }
+      , err => {
+        // this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});
+        console.log(err) ;
+      }
+    )
+   }
 
 }
