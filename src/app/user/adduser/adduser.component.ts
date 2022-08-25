@@ -55,7 +55,7 @@ export class AdduserComponent implements OnInit {
       
    
     
-     this.http.post<any>(  `${this.apiUrl}/address/add`  , this.addressObj ).subscribe(
+     this.http.post<any>(  `${this.apiUrl}/address/add/` + sessionStorage.getItem('loginId')  , this.addressObj ).subscribe(
       res => 
       {
           console.log( " Address Id given By Address Table")
