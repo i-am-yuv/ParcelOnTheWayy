@@ -17,14 +17,14 @@ import { AdduserComponent } from './user/adduser/adduser.component';
 import { AddTravellerComponent } from './traveller/add-traveller/add-traveller.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './user/search/search.component';
 import { NgToastModule } from 'ng-angular-popup';
 import { EdituserComponent } from './user/edituser/edituser.component';
 import { EditUserTravellerComponent } from './traveller/edit-user-traveller/edit-user-traveller.component';
 import { EditUserTravellerAadharComponent } from './traveller/edit-user-traveller-aadhar/edit-user-traveller-aadhar.component';
-
+import{FilterPipe} from "src/app/FilterPipe";
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +42,8 @@ import { EditUserTravellerAadharComponent } from './traveller/edit-user-travelle
     SearchComponent,
     EdituserComponent,
     EditUserTravellerComponent,
-    EditUserTravellerAadharComponent
+    EditUserTravellerAadharComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -50,7 +51,8 @@ import { EditUserTravellerAadharComponent } from './traveller/edit-user-travelle
     BrowserAnimationsModule ,
     ReactiveFormsModule,
     HttpClientModule,
-    NgToastModule
+    NgToastModule,
+    FormsModule
     
   ],
   providers: [],

@@ -23,28 +23,66 @@
 
   <div class="container" >
     
-    <button style="margin-left:46% ; margin-top: 20px;" type="button" class="btn btn-light btn-lg" routerLink="/user/search">Search</button>
-
+    
     <h3 style="text-align:center ; margin-bottom: 25px ;text-decoration: underline;color: darkslategray ;margin-top:15px;" > Traveller List</h3>
    
   </div>
 
-  <div *ngFor="let transaction of transactions">
-    <ul>
-      <li> startLocation :{{ transaction.startLocation}}</li>
-      <li> Destination:{{ transaction.endLocation}}</li>
-      
-      <li> Date of Delivery{{ transaction.deliverDate | date:'yyyy-MM-dd'}}</li>
-      <li> StartTime {{ transaction.startTime }}</li>
-      
-    </ul>
-   
- </div>
+  
 
   <!-- Notification for no employees -->
-<div class="col-lg-12 col-md-12 col-xl-12">
+<div *ngIf="transactions.length <0"  class="col-lg-12 col-md-12 col-xl-12">
     <div class="alert alert-info" role="alert">
       <h4 class="alert-heading">NO TRAVELLERS!</h4>
       <p>No Travellers were found.</p>
     </div>
   </div>
+
+<!-- Search bar-->
+
+<form   *ngIf="transactions.length >0" id="searchForm">
+  <div class="form-group">
+      <div class="input-group" id="filterAll">
+        <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+        <input type="text" class="form-control" name="searchString" placeholder="Search for any Field" [(ngModel)]="searchString">
+      </div>
+  </div>
+</form>
+
+  <!-- Table of Travellers-->
+  <div   *ngIf="transactions.length >0"class="container">    
+    <div class="row">
+				<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+					<thead>
+						<tr>
+							<th>Start Location</th>
+							<th>End Location</th>
+							<th>Delivery Date</th>
+							<th>Means of Transport</th>
+							<th>Available Space</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<th>Start Location</th>
+							<th>End Location</th>
+							<th>Delivery Date</th>
+							<th>Means of Transport</th>
+							<th>Available Space</th>
+							<th>Details</th>
+						</tr>
+					</tfoot>
+					<tbody>
+						<tr *ngFor="let transaction of transactions | filterAll:searchString">
+							<td>{{transaction.startLocation}}</td>
+							<td>{{transaction.endLocation}}</td>
+							<td>{{transaction.deliverDate | date:'dd-MM-yyyy'}} <sub> ( Time:{{transaction.startTime}} )</sub> </td>
+							<td>{{transaction.vehicleId}}</td>
+              <td>{{transaction.vehicleId}}</td>
+              <td> <a href=""><button>Details</button></a></td>
+						</tr>
+          </tbody>
+				</table>
+        </div>
+        </div>

@@ -17,8 +17,8 @@ export class UserComponent implements OnInit {
   
   //transaction:Transaction=new Transaction();
 
-  public transactions:Transaction[]=[];
-
+  public transactions!:Transaction[];
+  public searchString!: string;
   constructor(private http : HttpClient ,  private router: Router, private toast: NgToastService) { }
 
   ngOnInit(): void 
@@ -59,5 +59,8 @@ getActiveTravellers()
     this.toast.success({detail:"SUCCESS",summary:'Log Out Successfully',duration:2000});
     this.router.navigate(["login"]);
   }
+
+  
+  
 
   }
