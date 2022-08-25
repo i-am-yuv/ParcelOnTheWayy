@@ -22,7 +22,7 @@
       <div class="col-md-12" >
         <label for="inputAadhar" class="form-label">Aadhar Number</label>
         <input formControlName="aadharno" type="text" class="form-control" id="inputAadhar">
-        <button type="submit" class="btn btn-primary" style="margin:15px 45%" >Save</button>
+        <button type="submit" [disabled] = "!formValues.valid" class="btn btn-primary" style="margin:15px 45%" >Save</button>
       </div>
     </form>
         <hr>
