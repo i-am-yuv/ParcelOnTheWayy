@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { Transaction } from 'src/app/Transaction';
 import { environment } from 'src/environments/environment';
 
@@ -17,7 +19,7 @@ export class UserComponent implements OnInit {
 
   public transactions:Transaction[]=[];
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient ,  private router: Router, private toast: NgToastService) { }
 
   ngOnInit(): void 
   {
@@ -49,4 +51,13 @@ getActiveTravellers()
       }
     )
    }
+
+
+   logOut()
+  {
+    sessionStorage.clear() ;
+    this.toast.success({detail:"SUCCESS",summary:'Log Out Successfully',duration:2000});
+    this.router.navigate(["login"]);
+  }
+
   }
