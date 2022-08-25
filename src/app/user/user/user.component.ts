@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { Observable } from 'rxjs';
 import { Transaction } from 'src/app/Transaction';
 import { Vehicle_add } from 'src/app/Vehicle_add';
 import { environment } from 'src/environments/environment';
@@ -16,9 +17,10 @@ export class UserComponent implements OnInit {
 
   btnVisible : Boolean = true ; 
   
-  //transaction:Transaction=new Transaction();
-
-  public transactions!:Transaction[];
+  transaction:Transaction=new Transaction();
+  
+  
+  transactions:Transaction[]=[];
   public searchString!: string;
   vehicleDetail: Vehicle_add= new Vehicle_add();
   constructor(private http : HttpClient ,  private router: Router, private toast: NgToastService) { }
@@ -40,12 +42,59 @@ export class UserComponent implements OnInit {
 
 getActiveTravellers()
    {
-    this.http.get<Transaction[]>(  `${this.apiUrl}/getActiveTravellers` ).subscribe(
+    this.http.get<any[]>(  `${this.apiUrl}/getActiveTravellers` ).subscribe(
       res => 
       {
-       // console.log(res);
-        this.transactions=res;
-        console.log(this.transactions);
+         console.log(res);
+        
+       // this.transactions=res[0];
+       
+        for (var _i = 0; _i < res.length; _i++) {
+          console.log(_i);
+        //  console.log(this.transaction.startLocation);
+         this.transaction.availableSpace=res[_i][1].availableSpace;
+         this.transaction.deliverDate=res[_i][0].deliverDate;
+         this.transaction.endLocation=res[_i][0].endLocation;
+         this.transaction.startLocation=res[_i][0].startLocation;
+        // console.log(this.transaction.startLocation);
+         this.transaction.endTime=res[_i][0].endTime;
+         this.transaction.startTime=res[_i][0].startTime;
+         this.transaction.travellerId=res[_i][0].travellerId;
+         this.transaction.transactionId=res[_i][0].transactionId;
+         this.transaction.transactionDate=res[_i][0].transactionDate;
+         this.transaction.vehicleId=res[_i][0].vehicleId;
+         this.transaction.travellerStatus=res[_i][0].travellerStatus;
+         this.transaction.vehicleNo=res[_i][1].vehicleNo;
+         this.transaction.vehicleType=res[_i][1].vehicleType;
+          console.log(this.transaction);
+         
+          this.transactions.push(Object.assign({},this.transaction));
+        
+         for (var i = 0; i < this.transactions.length; i++) {
+          //console.log(this.transactions[i]);
+         }
+       
+         
+          
+         
+        }
+      console.log(this.transactions);
+    
+      
+        // transactionId!: number;
+        // transactionDate!: Date;
+        // travellerId!: number;
+        // vehicleId!: number;
+        // startTime!: number;
+        // endTime!: number;
+        // travellerStatus!:String;
+        // startLocation!: String;
+        // endLocation! : String;
+        // deliverDate!:Date;
+        // vehicleType!:String;
+        // vehicleNo!:String; 
+        // availableSpace!:String;
+       // console.log(this.transactions);
       }
       , err => {
         // this.toast.error({detail:"ERROR",summary:'Add User Info',duration:5000});

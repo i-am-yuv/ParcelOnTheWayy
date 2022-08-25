@@ -9,5 +9,7 @@ export class Transaction{
     startLocation!: String;
     endLocation! : String;
     deliverDate!:Date;
-    
+    vehicleType!:String;
+    vehicleNo!:String;
+    availableSpace!:String;
 }
