@@ -50,7 +50,7 @@ export class AddTravellerComponent implements OnInit
         console.log(res) ;
           this.toast.success({detail:"SUCCESS",summary:'Aadhar Number Added Successfully',duration:2000});
           this.formValues.reset();
-          sessionStorage.setItem('travllerId' , res.travellerId) ;
+          sessionStorage.setItem('travellerId' , res.travellerId) ;
       }
       , err => {
         console.log(err);

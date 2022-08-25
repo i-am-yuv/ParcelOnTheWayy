@@ -46,7 +46,7 @@
         <div class="col-md-4">
           <label for="inputRating" class="form-label">Rating : 4.6 (Demo Number)</label>
       </div>
-        <div class="col-7" style="text-align:center ; margin-bottom: 15px;">
+        <div class="col-md-7" style="text-align:center ; margin-bottom: 15px;">
           <button type="button" class="btn btn-primary" routerLink="/user/traveller/travellerProfile/edit" *ngIf=!this.btnVisible>Edit Traveller Details</button>
           </div>
           <div class="col-12" style="text-align:center ; margin-bottom: 15px;">
@@ -54,10 +54,9 @@
           </div>
         <hr>
         <div class="col-md-6">
-            <label for="inputAadhar" class="form-label">Aadhar Number : {{this.travellerObj.aadharno}}</label>
-            <!-- <input type="text" class="form-control" id="inputAadhar"> -->
+            <label for="inputAadhar" class="form-label">Aadhar Number: {{this.travellerObj.aadharno}}</label>
         </div>
-        <div class="col-md-6" style="text-align:center ; margin-top: 50px;">
+        <div class="col-md-3" style="text-align:center ; margin-top: 10px;">
             <button type="button" class="btn btn-success" routerLink="/user/traveller/travellerAadhar/edit">Edit Aadhar No.</button>
         </div>
 

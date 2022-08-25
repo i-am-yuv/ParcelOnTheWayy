@@ -21,7 +21,7 @@ export class EditUserTravellerAadharComponent implements OnInit {
   ngOnInit(): void {
     this.formValue = this.formBuilder.group(
     {
-      aadharno:['',Validators.required] ,
+      aadharno:['',Validators.required] 
     }
     )
     this.addAadhar();
@@ -29,7 +29,7 @@ export class EditUserTravellerAadharComponent implements OnInit {
 
   addAadhar() 
   {
-    this.http.get<any>(  `${this.apiUrl}/traveller/view/`+sessionStorage.getItem('travllerId')).subscribe(
+    this.http.get<any>(  `${this.apiUrl}/traveller/view/`+sessionStorage.getItem('travellerId')).subscribe(
       res => 
       {
           this.formValue.controls['aadharno'].setValue(res.aadharno) ;
@@ -44,7 +44,7 @@ export class EditUserTravellerAadharComponent implements OnInit {
 
   updateAadhar() {
     this.travellerObj.aadharno = this.formValue.value.aadharno;
-    this.http.put<any>(  `${this.apiUrl}/traveller/edit/`+sessionStorage.getItem('travllerId') , this.travellerObj ).subscribe(
+    this.http.put<any>(  `${this.apiUrl}/traveller/edit/`+sessionStorage.getItem('travellerId') , this.travellerObj ).subscribe(
       res => 
       {
           console.log(res) ;
