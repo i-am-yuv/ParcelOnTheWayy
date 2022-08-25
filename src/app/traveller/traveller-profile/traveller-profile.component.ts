@@ -88,9 +88,9 @@ export class TravellerProfileComponent implements OnInit {
     this.http.get<any>(  `${this.apiUrl}/vehicle/getAllVehicleOfTraveller/`+sessionStorage.getItem('vehicleId') ).subscribe(
       res => 
       {
-          this.vehicleObj. VehicleType = res.VehicleType ;
-          this.vehicleObj.VehicleNo = res.VehicleNo ;
-          this.vehicleObj.AvailableSpace = res.AvailableSpace ;
+          this.vehicleObj. vehicleType = res.VehicleType ;
+          this.vehicleObj.vehicleNo = res.VehicleNo ;
+          this.vehicleObj.availableSpace = res.AvailableSpace ;
       }
       , err => {
         // this.toast.error({detail:"ERROR",summary:'Add User Info',duration:5000});
