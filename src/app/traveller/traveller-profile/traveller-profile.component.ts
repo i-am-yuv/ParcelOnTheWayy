@@ -21,9 +21,11 @@ export class TravellerProfileComponent implements OnInit {
 
   userObj : User = new User() ;
   addressObj : Address = new Address() ;
-  vehicleObj : Vehicle_add = new Vehicle_add();
+  vehicleObj : Vehicle_add[] = new Array();
+
   btnVisible : Boolean = true ; 
   travellerObj : Traveller = new Traveller();
+
   constructor(private formBuilder : FormBuilder , private http : HttpClient , private router : Router , private toast: NgToastService) { }
 
   ngOnInit(): void {
@@ -70,7 +72,8 @@ export class TravellerProfileComponent implements OnInit {
     )
    }
 
-   getAadharNo() {
+   getAadharNo() 
+   {
     this.http.get<any>(  `${this.apiUrl}/traveller/view/`+sessionStorage.getItem('travellerId')).subscribe(
       res => 
       {
@@ -85,15 +88,13 @@ export class TravellerProfileComponent implements OnInit {
 
    populateVehicle()
    {
-    this.http.get<any>(  `${this.apiUrl}/vehicle/getAllVehicleOfTraveller/`+sessionStorage.getItem('vehicleId') ).subscribe(
+    this.http.get<any>(  `${this.apiUrl}/vehicle/getAllVehicleOfTraveller/`+sessionStorage.getItem('travellerId') ).subscribe(
       res => 
       {
-          this.vehicleObj. vehicleType = res.vehicleType ;
-          this.vehicleObj.vehicleNo = res.vehicleNo ;
-          this.vehicleObj.availableSpace = res.availableSpace ;
+          console.log(res);
+          this.vehicleObj = res ;
       }
       , err => {
-        // this.toast.error({detail:"ERROR",summary:'Add User Info',duration:5000});
         console.log(err) ;
       }
     )

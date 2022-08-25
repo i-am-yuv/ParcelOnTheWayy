@@ -65,7 +65,7 @@
         <table class="table"> 
             <thead>
               <tr>
-                <th scope="col">#</th>
+                <th scope="col">S.No.</th>
                 <th scope="col">Vehicle Name</th>
                 <th scope="col">Vehicle Number</th>
                 <th scope="col">Available Space</th>
@@ -74,13 +74,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>{{this.vehicleObj.vehicleType}}</td>
-                <td>{{this.vehicleObj.vehicleNo}}</td>
-                <td>{{this.vehicleObj.availableSpace}}</td>
-                <td></td>
-                <td></td>
+              <tr *ngFor="let vehicle of vehicleObj; index as i ">
+                <th scope="row">{{i+1}}</th>
+                <td>{{this.vehicle.vehicleType}}</td>
+                <td>{{this.vehicle.vehicleNo}}</td>
+                <td>{{this.vehicle.availableSpace}}</td>
+                <td><button class="btn btn-info">Edit</button></td>
+                <td><button class="btn btn-danger">Delete</button></td>
               </tr>
             </tbody>
         </table>
