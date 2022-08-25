@@ -15,24 +15,23 @@
 </nav>
 
 
-<div class="container">
-
-      <h1 style="text-align:center">Fill traveller Details</h1>
-  <form class="row g-3" [formGroup] ="formValues" (ngSubmit)="addTraveller()" >
-    <div class="col-md-12" >
-      <label for="inputAadhar" class="form-label">Aadhar Number</label>
-      <input formControlName="aadharno" type="text" class="form-control" id="inputAadhar">
-      <button type="submit" [disabled] = "!formValues.valid" class="btn btn-primary" style="margin:15px 45%" >Save</button>
-    </div>
-  </form>
-      <hr>
+  <div class="container">
   
-    <form class="row g-3" [formGroup] ="vehicleValues" (ngSubmit)="addVehicle()" >
-      <h5 style="text-align:center ; text-decoration: underline;" >Add Your Vehicle Information</h5>
-      <div class="col-md-3">
-          <label for="inputT" class="form-label">Vehicle Name</label>
-          <input type="text" class="form-control" formControlName="vehicleType" id="inputT">
+        <h1 style="text-align:center">Fill traveller Details</h1>
+    <form class="row g-3" [formGroup] ="formValues" (ngSubmit)="addTraveller()" >
+      <div class="col-md-12" >
+        <label for="inputAadhar" class="form-label">Aadhar Number</label>
+        <input formControlName="aadharno" type="text" class="form-control" id="inputAadhar">
+        <button type="submit" class="btn btn-primary" style="margin:15px 45%" >Save</button>
       </div>
+    </form>
+        <hr>
+    <form  class="row g-3" >
+        <h5 style="text-align:center ; text-decoration: underline;" >Add Your Vehicle Information</h5>
+        <div class="col-md-3">
+            <label for="inputT" class="form-label">Vehicle Name</label>
+            <input type="text" class="form-control" id="inputT">
+        </div>
 
       <div class="col-md-3">
           <label for="inputV" class="form-label">Vehicle Number</label>
