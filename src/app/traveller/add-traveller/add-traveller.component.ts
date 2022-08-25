@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { Traveller } from 'src/app/Traveller';
+import { Vehicle_add} from 'src/app/Vehicle_add';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -15,6 +16,7 @@ export class AddTravellerComponent implements OnInit
 {
   private apiUrl = environment.apiBasedUrl;
   public formValues !: FormGroup;
+  public vehicleValues !: FormGroup;
 
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private toast: NgToastService ) { }
@@ -24,9 +26,17 @@ export class AddTravellerComponent implements OnInit
       {
         aadharno: ['', Validators.required] 
       })
+
+      this.vehicleValues = this.formBuilder.group(
+        {
+          vehicleType: ['', Validators.required] ,
+          availableSpace: ['', Validators.required] ,
+          vehicleNo: ['', Validators.required] 
+        })
   }
 
   travellerObj : Traveller = new Traveller() ;
+  vehiclerObj : Vehicle_add = new Vehicle_add() ;
 
   addTraveller()
   {
@@ -49,5 +59,31 @@ export class AddTravellerComponent implements OnInit
       }
     )
   }
+
+  addVehicle()
+  {
+    this.vehiclerObj.travellerId = Number( sessionStorage.getItem('travellerId') ) ;
+    this.vehiclerObj. vehicleType = this.vehicleValues.value.vehicleType ;
+    this.vehiclerObj. vehicleNo = this.vehicleValues.value.vehicleNo ;
+    this.vehiclerObj.  availableSpace = this.vehicleValues.value.availableSpace ;
+
+
+    this.http.post<any>(`${this.apiUrl}/vehicle/add` , this.vehiclerObj )
+    .subscribe(
+      res => 
+      {
+        console.log(res) ;
+          this.toast.success({detail:"SUCCESS",summary:'Vehicle Details Added Successfully',duration:2000});
+          this.vehicleValues.reset();
+          sessionStorage.setItem('vehicleId' , res.vehicleId) ;
+      }
+      , err => {
+        console.log(err);
+        this.vehicleValues.reset();
+        this.toast.error({detail:"ERROR",summary:'Error in Data',duration:5000});
+      }
+    )
+  }
+
 
 }
