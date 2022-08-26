@@ -21,3 +21,15 @@ li{   text-align: center;
         width: 50%;
         background-color: powderblue;
  } 
+
+ th{
+    text-align: center;
+ }
+ td{
+    text-align: center;
+ }
+ 
+
+ tr{
+    height: 10px;
+ }
