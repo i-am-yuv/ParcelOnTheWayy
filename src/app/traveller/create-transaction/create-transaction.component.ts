@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { NgToastService } from 'ng-angular-popup';
 import { Vehicle_add } from 'src/app/Vehicle_add';
-import { Transaction2 } from 'src/app/transaction2';
+import { Transaction2 } from 'src/app/Transaction2';
 
 
 @Component({
