@@ -10,3 +10,14 @@ li{   text-align: center;
     border: 1px solid black;
     display:inline-block;
     }
+
+.scrollit {
+        overflow:scroll;
+        height:100px;
+    }
+.search {
+        margin-bottom: 100px;
+        height: 200px;
+        width: 50%;
+        background-color: powderblue;
+ } 
