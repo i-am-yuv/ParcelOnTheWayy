@@ -71,16 +71,18 @@
                 <th scope="col">Available Space</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
+                <th scope="col">Select</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let vehicle of vehicleObj; index as i ">
                 <th scope="row">{{i+1}}</th>
-                <td>{{this.vehicle.vehicleType}}</td>
-                <td>{{this.vehicle.vehicleNo}}</td>
-                <td>{{this.vehicle.availableSpace}}</td>
+                <td style="text-align:center">{{this.vehicle.vehicleType}}</td>
+                <td style="text-align:center">{{this.vehicle.vehicleNo}}</td>
+                <td style="text-align:center">{{this.vehicle.availableSpace}}</td>
                 <td><button class="btn btn-success" routerLink="/user/traveller/travellerProfile/vehicleDetails/edit">Edit</button></td>
                 <td><button class="btn btn-danger" (click) = "deleteVehicle(this.vehicle.vehicleId)">Delete</button></td>
+                <td><label class="switch"><input type="checkbox"><span class="slider round"></span></label></td>
               </tr>
             </tbody>
         </table>
