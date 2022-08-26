@@ -47,16 +47,16 @@ getActiveTravellers()
       {
          console.log(res);
         
-       // this.transactions=res[0];
+       
        
         for (var _i = 0; _i < res.length; _i++) {
           console.log(_i);
-        //  console.log(this.transaction.startLocation);
+       
          this.transaction.availableSpace=res[_i][1].availableSpace;
          this.transaction.deliverDate=res[_i][0].deliverDate;
          this.transaction.endLocation=res[_i][0].endLocation;
          this.transaction.startLocation=res[_i][0].startLocation;
-        // console.log(this.transaction.startLocation);
+       
          this.transaction.endTime=res[_i][0].endTime;
          this.transaction.startTime=res[_i][0].startTime;
          this.transaction.travellerId=res[_i][0].travellerId;
@@ -70,9 +70,7 @@ getActiveTravellers()
          
           this.transactions.push(Object.assign({},this.transaction));
         
-         for (var i = 0; i < this.transactions.length; i++) {
-          //console.log(this.transactions[i]);
-         }
+        
        
          
           
