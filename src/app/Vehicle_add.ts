@@ -4,4 +4,5 @@ export class Vehicle_add{
     vehicleNo !: String ;
     vehicleType !:String;
     vehicleId !: number;
+
 }

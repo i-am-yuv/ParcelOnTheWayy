@@ -71,7 +71,7 @@
                 <th scope="col">Available Space</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
-                <th scope="col">Select</th>
+                <th scope="col">Travelling With</th>
               </tr>
             </thead>
             <tbody>
@@ -82,7 +82,8 @@
                 <td style="text-align:center">{{this.vehicle.availableSpace}}</td>
                 <td><button class="btn btn-success" routerLink="/user/traveller/travellerProfile/vehicleDetails/edit">Edit</button></td>
                 <td><button class="btn btn-danger" (click) = "deleteVehicle(this.vehicle.vehicleId)">Delete</button></td>
-                <td><label class="switch"><input type="checkbox"><span class="slider round"></span></label></td>
+                <td><button type="button" class="btn btn-outline-info" data-bs-toggle="button" (click) = "selectVehicle(this.vehicle.vehicleId)" >Select</button>
+                </td>
               </tr>
             </tbody>
         </table>

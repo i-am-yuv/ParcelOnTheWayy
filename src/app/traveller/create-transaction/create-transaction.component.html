@@ -25,12 +25,12 @@
       </div>
       <div class="col-md-6">
         <label for="inputTime1" class="form-label">Start Time</label>
-        <input type="time" formControlName="startTime" class="form-control" id="inputTime1">
+        <input type="text" formControlName="startTime" class="form-control" id="inputTime1">
       </div>
       
       <div class="col-md-12">
          <label for="inputTime2" class="form-label">End Time</label>
-         <input type="time" formControlName="endTime" class="form-control" id="inputTime2">
+         <input type="text" formControlName="endTime" class="form-control" id="inputTime2">
       </div>
       <div class="col-md-6">
           <label for="inputLoc1" class="form-label">Start Location</label>
@@ -40,9 +40,8 @@
           <label for="inputLoc2" class="form-label">End Location</label>
           <input type="text" formControlName="endLocation" class="form-control" id="inputLoc2">
       </div>
-      <button type="submit" [disabled] = "!formValues.valid" class="btn btn-primary"   >Save</button>
+      <button type="submit" [disabled] = "!formValues.valid" class="btn btn-primary" >Save</button>
       <button type="button" class="btn btn-primary" routerLink="/user/traveller"   >Back</button>
-        
   </form>
 
 </div>

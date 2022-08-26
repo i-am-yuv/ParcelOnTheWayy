@@ -115,5 +115,10 @@ export class TravellerProfileComponent implements OnInit {
     )
     // this.router.navigate(["user/traveller/travellerProfile"]);
    }
+   selectVehicle(vehicleId : number )
+   {
+     this.toast.success({detail:"SUCCESS",summary:'Vehicle Is Selected',duration:2000});
+     sessionStorage.setItem('vehicleId' , String(vehicleId) ) ;
+   }
 
 }

@@ -25,7 +25,6 @@ export class CreateTransactionComponent implements OnInit {
   ngOnInit(): void {
     this.formValues = this.formBuilder.group(
       {
-        transactionDate:['',Validators.required] ,
         startTime:['' , Validators.required],
         deliverDate:['' , Validators.required],
         endTime:['' , Validators.required],
@@ -38,15 +37,18 @@ export class CreateTransactionComponent implements OnInit {
   vehiclebj : Vehicle_add = new Vehicle_add() ;
   transactionObj : Transaction2 =new Transaction2() ;
 
-  async addTransaction()
+   addTransaction()
   {
-    this.transactionObj.travellerStatus = "Active";
+    this.transactionObj.vehicleId = Number(sessionStorage.getItem('vehicleId')) ;
+    this.transactionObj.travellerId = Number(sessionStorage.getItem('travellerId')) ;
     this.transactionObj.startTime = Number(this.formValues.value.startTime);
-    this.transactionObj.deliverDate= this.formValues.value.deliverDate;
     this.transactionObj.endTime = Number(this.formValues.value.endTime);
+    this.transactionObj.travellerStatus = "Active";
     this.transactionObj.startLocation = this.formValues.value.startLocation;
     this.transactionObj.endLocation = this.formValues.value.endLocation;
-    
+    this.transactionObj.deliverDate= this.formValues.value.deliverDate;
+  
+   
     this.http.post<any>(  `${this.apiUrl}/transaction/add/`  , this.transactionObj ).subscribe(
       res => 
       {
