@@ -82,7 +82,7 @@
                 <td style="text-align:center">{{this.vehicle.availableSpace}}</td>
                 <td><button class="btn btn-success" routerLink="/user/traveller/travellerProfile/vehicleDetails/edit">Edit</button></td>
                 <td><button class="btn btn-danger" (click) = "deleteVehicle(this.vehicle.vehicleId)">Delete</button></td>
-                <td><button type="button" class="btn btn-outline-info" data-bs-toggle="button" (click) = "selectVehicle(this.vehicle.vehicleId)" >Select</button>
+                <td><button type="button" class="btn btn-outline-info" (click) = "selectVehicle(this.vehicle.vehicleId)" >Select</button>
                 </td>
               </tr>
             </tbody>
