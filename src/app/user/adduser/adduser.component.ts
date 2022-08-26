@@ -1,6 +1,6 @@
 import { Component, OnInit, resolveForwardRef } from '@angular/core';
 import { HttpClient, HttpResponse} from '@angular/common/http'
-import { FormGroup , FormBuilder , Validators } from '@angular/forms';
+import { FormGroup , FormBuilder , Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { NgToastService } from 'ng-angular-popup';
@@ -19,7 +19,9 @@ export class AdduserComponent implements OnInit {
   public formValues !: FormGroup ;
 
 
-  constructor( private formBuilder : FormBuilder , private http : HttpClient , private router : Router , private toast: NgToastService) { }
+  constructor( private formBuilder : FormBuilder , private http : HttpClient , private router : Router , private toast: NgToastService) { 
+
+  }
 
   ngOnInit(): void {
     this.formValues = this.formBuilder.group(
@@ -93,6 +95,6 @@ export class AdduserComponent implements OnInit {
       }
     )
   }
-  
+
 }
 

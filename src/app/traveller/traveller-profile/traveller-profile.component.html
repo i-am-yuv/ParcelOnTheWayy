@@ -79,8 +79,8 @@
                 <td>{{this.vehicle.vehicleType}}</td>
                 <td>{{this.vehicle.vehicleNo}}</td>
                 <td>{{this.vehicle.availableSpace}}</td>
-                <td><button class="btn btn-info">Edit</button></td>
-                <td><button class="btn btn-danger">Delete</button></td>
+                <td><button class="btn btn-success" routerLink="/user/traveller/travellerProfile/vehicleDetails/edit">Edit</button></td>
+                <td><button class="btn btn-danger" (click) = "deleteVehicle(this.vehicle.vehicleId)">Delete</button></td>
               </tr>
             </tbody>
         </table>

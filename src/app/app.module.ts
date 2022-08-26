@@ -25,6 +25,7 @@ import { EdituserComponent } from './user/edituser/edituser.component';
 import { EditUserTravellerComponent } from './traveller/edit-user-traveller/edit-user-traveller.component';
 import { EditUserTravellerAadharComponent } from './traveller/edit-user-traveller-aadhar/edit-user-traveller-aadhar.component';
 import{FilterPipe} from "src/app/FilterPipe";
+import { EditVehicleDetailsComponent } from './traveller/traveller-profile/edit-vehicle-details/edit-vehicle-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import{FilterPipe} from "src/app/FilterPipe";
     EdituserComponent,
     EditUserTravellerComponent,
     EditUserTravellerAadharComponent,
-    FilterPipe
+    FilterPipe,
+    EditVehicleDetailsComponent
   ],
   imports: [
     BrowserModule,

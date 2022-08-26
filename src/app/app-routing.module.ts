@@ -8,6 +8,7 @@ import { CreateTransactionComponent } from './traveller/create-transaction/creat
 import { EditUserTravellerAadharComponent } from './traveller/edit-user-traveller-aadhar/edit-user-traveller-aadhar.component';
 import { EditUserTravellerComponent } from './traveller/edit-user-traveller/edit-user-traveller.component';
 import { OrdersComponent } from './traveller/orders/orders.component';
+import { EditVehicleDetailsComponent } from './traveller/traveller-profile/edit-vehicle-details/edit-vehicle-details.component';
 import { TravellerProfileComponent } from './traveller/traveller-profile/traveller-profile.component';
 import { TravellerComponent } from './traveller/traveller/traveller.component';
 import { AdduserComponent } from './user/adduser/adduser.component';
@@ -34,7 +35,8 @@ const routes: Routes = [
  {path:"user/traveller/addTravellerDetails" , component:AddTravellerComponent },
  {path:"user/profile/edit" , component:EdituserComponent },
  {path:"user/traveller/travellerProfile/edit" , component:EditUserTravellerComponent},
- {path:"user/traveller/travellerAadhar/edit" , component:EditUserTravellerAadharComponent}
+ {path:"user/traveller/travellerAadhar/edit" , component:EditUserTravellerAadharComponent},
+ {path:"user/traveller/travellerProfile/vehicleDetails/edit", component:EditVehicleDetailsComponent}
 ];
 
 @NgModule({

@@ -26,7 +26,9 @@ export class TravellerProfileComponent implements OnInit {
   btnVisible : Boolean = true ; 
   travellerObj : Traveller = new Traveller();
 
-  constructor(private formBuilder : FormBuilder , private http : HttpClient , private router : Router , private toast: NgToastService) { }
+  constructor(private formBuilder : FormBuilder , private http : HttpClient , private router : Router , private toast: NgToastService) { 
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
   ngOnInit(): void {
     if( sessionStorage.getItem('addBtnVisible') === 'false' )
@@ -98,6 +100,20 @@ export class TravellerProfileComponent implements OnInit {
         console.log(err) ;
       }
     )
+   }
+
+   deleteVehicle(vehicleId : number) {
+    this.http.delete<any>( `${this.apiUrl}/vehicle/`+vehicleId).subscribe(
+      res => 
+      {
+          console.log(res);
+          this.ngOnInit();
+      }
+      , err => {
+        console.log(err) ;
+      }
+    )
+    // this.router.navigate(["user/traveller/travellerProfile"]);
    }
 
 }
