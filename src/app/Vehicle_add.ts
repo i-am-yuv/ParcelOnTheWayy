@@ -3,5 +3,9 @@ export class Vehicle_add{
     travellerId !: number;
     vehicleNo !: String ;
     vehicleType !:String;
+<<<<<<< Updated upstream
     vehicleId !: number;
+=======
+  
+>>>>>>> Stashed changes
 }
