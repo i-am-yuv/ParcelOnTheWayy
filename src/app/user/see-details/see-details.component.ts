@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { Address } from 'src/app/Address';
 import { Transaction } from 'src/app/Transaction';
+import { Traveller } from 'src/app/Traveller';
 import { User } from 'src/app/User';
 import { environment } from 'src/environments/environment';
 
@@ -19,6 +20,7 @@ export class SeeDetailsComponent implements OnInit {
   userObj : User = new User() ;
   vehicleNo!: String;
   addressObj : Address = new Address() ;
+  travellerObj : Traveller = new Traveller;
   btnVisible : Boolean = true ; 
   formValues = new FormGroup ({
    
@@ -61,7 +63,30 @@ export class SeeDetailsComponent implements OnInit {
         console.log(err) ;
       }
     )
-      
+    this.http.get<any>(  `${this.apiUrl}/address/`+sessionStorage.getItem('IdOfAddress') ).subscribe(
+      res1 => 
+      {
+          this.addressObj.city = res1.city ;
+          this.addressObj.landmark = res1.landmark ;
+          this.addressObj.pincode = res1.pincode ;
+          this.addressObj.state = res1.state ;
+          this.addressObj.street = res1.street ;
+      }
+      , err => {
+        // this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});
+        console.log(err) ;
+      }
+    )
+    this.http.get<any>(  `${this.apiUrl}/traveller/view/`+sessionStorage.getItem('travellerId')).subscribe(
+      res => 
+      {
+          this.travellerObj.aadharno = res.aadharno ;
+      }
+      , err => {
+        // this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});
+        console.log(err) ;
+      }
+    )
    }
 
   logOut()

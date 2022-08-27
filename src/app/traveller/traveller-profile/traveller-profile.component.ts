@@ -106,8 +106,10 @@ export class TravellerProfileComponent implements OnInit {
     this.http.delete<any>( `${this.apiUrl}/vehicle/`+vehicleId).subscribe(
       res => 
       {
-          this.ngOnInit();
+          // console.log(res);
+          
           sessionStorage.removeItem('vehicleId') ;
+          this.ngOnInit();
           this.toast.success({detail:"SUCCESS",summary:'Vehicle Deleted Successfully!!',duration:2000});
           console.log(res);
       }
@@ -121,9 +123,15 @@ export class TravellerProfileComponent implements OnInit {
    {
     sessionStorage.setItem('vehicleId' , String(vehicleId) ) ;
    }
+
    selectVehicle(vehicleId : number )
+
    {
+
      this.toast.success({detail:"SUCCESS",summary:'Vehicle Is Selected',duration:2000});
+
      sessionStorage.setItem('vehicleId' , String(vehicleId) ) ;
+
    }
+
 }
