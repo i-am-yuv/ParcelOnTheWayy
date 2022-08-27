@@ -19,10 +19,21 @@ export class CreateTransactionComponent implements OnInit {
   public formValues !: FormGroup ;
 
 
+  showCreateTraveller : Boolean = true ;
+
   constructor( private formBuilder : FormBuilder , private http : HttpClient , private router : Router , private toast: NgToastService) { }
 
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  { 
+    if( sessionStorage.getItem('userID') === null || sessionStorage.getItem('travellerId') === null  )
+    {
+      this.showCreateTraveller = false ;
+    }
+    else{
+      this.showCreateTraveller = true ;
+    }
+
     this.formValues = this.formBuilder.group(
       {
         startTime:['' , Validators.required],
@@ -38,6 +49,7 @@ export class CreateTransactionComponent implements OnInit {
   transactionObj : Transaction2 =new Transaction2() ;
 
    addTransaction()
+<<<<<<< Updated upstream
   { 
       if(Number(sessionStorage.getItem('vehicleId'))<1)
      {  console.log("session empty");
@@ -62,20 +74,39 @@ export class CreateTransactionComponent implements OnInit {
     this.transactionObj.endLocation = this.formValues.value.endLocation;
     this.transactionObj.deliverDate= this.formValues.value.deliverDate;
   
+=======
+  {
+    if( sessionStorage.getItem('vehicleId') === null )
+    {
+      this.toast.info({detail:"INFO",summary:'Vehicle is not selected',duration:2000});
+    }
+    else{
+      this.transactionObj.vehicleId = Number(sessionStorage.getItem('vehicleId')) ;
+      this.transactionObj.travellerId = Number(sessionStorage.getItem('travellerId')) ;
+      this.transactionObj.startTime = Number(this.formValues.value.startTime);
+      this.transactionObj.endTime = Number(this.formValues.value.endTime);
+      this.transactionObj.travellerStatus = "Active";
+      this.transactionObj.startLocation = this.formValues.value.startLocation;
+      this.transactionObj.endLocation = this.formValues.value.endLocation;
+      this.transactionObj.deliverDate= this.formValues.value.deliverDate;
+    
+     
+      this.http.post<any>(  `${this.apiUrl}/transaction/add/`  , this.transactionObj ).subscribe(
+        res => 
+        {
+            console.log(res) ;
+            sessionStorage.setItem('transactionId' , res.transactionId ) ;
+    
+            this.toast.success({detail:"SUCCESS",summary:'transaction Created Successfully',duration:2000});
+            this.formValues.reset();
+        }
+        , err => {
+          this.toast.error({detail:"Error in Transection",summary:'Error in Data',duration:5000});
+        }
+      )
+    }
+>>>>>>> Stashed changes
    
-    this.http.post<any>(  `${this.apiUrl}/transaction/add/`  , this.transactionObj ).subscribe(
-      res => 
-      {
-          console.log(res) ;
-          sessionStorage.setItem('transactionId' , res.transactionId ) ;
-  
-          this.toast.success({detail:"SUCCESS",summary:'transaction Created Successfully',duration:2000});
-          this.formValues.reset();
-      }
-      , err => {
-        this.toast.error({detail:"Error in Transection",summary:'Error in Data',duration:5000});
-      }
-    )
   }
   
 

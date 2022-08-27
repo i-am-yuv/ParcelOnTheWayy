@@ -61,8 +61,9 @@
         </div>
 
         <hr>
-
-        <table class="table"> 
+        <h4 *ngIf="this.vehicleObj.length===0" style="text-align:center" >No Vehicle Available</h4>
+            
+        <table class="table"  *ngIf="this.vehicleObj.length!=0"> 
             <thead>
               <tr>
                 <th scope="col">S.No.</th>

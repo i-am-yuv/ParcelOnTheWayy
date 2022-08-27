@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TravellerComponent implements OnInit {
 
+  showTravellerProfile : Boolean = true ;
+  
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    if( sessionStorage.getItem('travellerId') === null )
+    {
+      this.showTravellerProfile = false ;
+    }
+    else{
+         this.showTravellerProfile = true ;
+    }
   }
 
 }

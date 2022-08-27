@@ -81,7 +81,6 @@ export class LoginComponent implements OnInit
     .subscribe(
       res => 
       {       console.log(res) ;
-              
               sessionStorage.setItem('travellerId' , res.travellerId ) ;
       }
       , error => {

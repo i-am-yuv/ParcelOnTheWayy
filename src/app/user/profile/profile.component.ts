@@ -79,13 +79,13 @@ export class ProfileComponent implements OnInit {
           this.toast.success( {detail:"SUCCESS",summary:'User Deleted Successfully',duration:2000}  );
           sessionStorage.setItem( 'addBtnVisible' , 'true' ) ;
           this.router.navigate(["user"]);
+          sessionStorage.removeItem('userID') ;
         }
         , err => {
           // this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});
           console.log( err) ;
         }
       )
-
   } else {
       
   }

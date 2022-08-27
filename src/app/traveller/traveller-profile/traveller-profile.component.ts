@@ -106,19 +106,19 @@ export class TravellerProfileComponent implements OnInit {
     this.http.delete<any>( `${this.apiUrl}/vehicle/`+vehicleId).subscribe(
       res => 
       {
-          console.log(res);
           this.ngOnInit();
+          sessionStorage.removeItem('vehicleId') ;
+          this.toast.success({detail:"SUCCESS",summary:'Vehicle Deleted Successfully!!',duration:2000});
+          console.log(res);
       }
       , err => {
         console.log(err) ;
       }
     )
-    // this.router.navigate(["user/traveller/travellerProfile"]);
    }
    selectVehicle(vehicleId : number )
    {
      this.toast.success({detail:"SUCCESS",summary:'Vehicle Is Selected',duration:2000});
      sessionStorage.setItem('vehicleId' , String(vehicleId) ) ;
    }
-
 }

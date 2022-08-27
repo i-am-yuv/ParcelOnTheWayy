@@ -18,10 +18,20 @@ export class AddTravellerComponent implements OnInit
   public formValues !: FormGroup;
   public vehicleValues !: FormGroup;
 
+  IsAadharVisible : Boolean = true ;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private toast: NgToastService ) { }
 
   ngOnInit(): void {
+
+    if( sessionStorage.getItem('travellerId') === null )
+    {
+      this.IsAadharVisible = true ;
+    }
+    else{
+      this.IsAadharVisible = false ;
+    }
+
     this.formValues = this.formBuilder.group(
       {
         aadharno: ['', Validators.required] 
@@ -51,38 +61,45 @@ export class AddTravellerComponent implements OnInit
           this.toast.success({detail:"SUCCESS",summary:'Aadhar Number Added Successfully',duration:2000});
           this.formValues.reset();
           sessionStorage.setItem('travellerId' , res.travellerId) ;
+          this.ngOnInit() ;
       }
       , err => {
         console.log(err);
         this.formValues.reset();
-        this.toast.error({detail:"ERROR",summary:'Aadhar Number is Already Added',duration:5000});
+        this.toast.error({detail:"ERROR",summary:'Something Went Wrong!!',duration:5000});
       }
     )
   }
 
   addVehicle()
   {
-    this.vehiclerObj.travellerId = Number( sessionStorage.getItem('travellerId') ) ;
-    this.vehiclerObj.vehicleType = this.vehicleValues.value.vehicleType ;
-    this.vehiclerObj.vehicleNo = this.vehicleValues.value.vehicleNo ;
-    this.vehiclerObj.availableSpace = this.vehicleValues.value.availableSpace ;
-
-
-    this.http.post<any>(`${this.apiUrl}/vehicle/add` , this.vehiclerObj )
-    .subscribe(
-      res => 
-      {
-        console.log(res) ;
-          this.toast.success({detail:"SUCCESS",summary:'Vehicle Details Added Successfully',duration:2000});
+    if( sessionStorage.getItem('travellerId') === null  )
+    {
+      this.toast.info({detail:"INFO",summary:'Add Your Aadhar Details First',duration:2000});
+    }
+    else{
+      this.vehiclerObj.travellerId = Number( sessionStorage.getItem('travellerId') ) ;
+      this.vehiclerObj.vehicleType = this.vehicleValues.value.vehicleType ;
+      this.vehiclerObj.vehicleNo = this.vehicleValues.value.vehicleNo ;
+      this.vehiclerObj.availableSpace = this.vehicleValues.value.availableSpace ;
+  
+  
+      this.http.post<any>(`${this.apiUrl}/vehicle/add` , this.vehiclerObj )
+      .subscribe(
+        res => 
+        {
+            console.log(res) ;
+            this.toast.success({detail:"SUCCESS",summary:'Vehicle Details Added Successfully',duration:2000});
+            this.vehicleValues.reset();
+        }
+        , err => {
+          console.log(err);
           this.vehicleValues.reset();
-          sessionStorage.setItem('vehicleId' , res.vehicleId) ;
-      }
-      , err => {
-        console.log(err);
-        this.vehicleValues.reset();
-        this.toast.error({detail:"ERROR",summary:'Error in Data',duration:5000});
-      }
-    )
+          this.toast.error({detail:"ERROR",summary:'Error in Data',duration:5000});
+        }
+      )
+    }
+    
   }
 
 
