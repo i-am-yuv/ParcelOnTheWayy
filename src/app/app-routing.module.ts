@@ -13,8 +13,10 @@ import { TravellerProfileComponent } from './traveller/traveller-profile/travell
 import { TravellerComponent } from './traveller/traveller/traveller.component';
 import { AdduserComponent } from './user/adduser/adduser.component';
 import { EdituserComponent } from './user/edituser/edituser.component';
+import { MessageComponent } from './user/message/message.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { SearchComponent } from './user/search/search.component';
+import { SeeDetailsComponent } from './user/see-details/see-details.component';
 
 import { UserComponent } from './user/user/user.component';
 
@@ -36,7 +38,9 @@ const routes: Routes = [
  {path:"user/profile/edit" , component:EdituserComponent },
  {path:"user/traveller/travellerProfile/edit" , component:EditUserTravellerComponent},
  {path:"user/traveller/travellerAadhar/edit" , component:EditUserTravellerAadharComponent},
- {path:"user/traveller/travellerProfile/vehicleDetails/edit", component:EditVehicleDetailsComponent}
+ {path:"user/traveller/travellerProfile/vehicleDetails/edit", component:EditVehicleDetailsComponent},
+  {path:"user/seeDetails" ,component:SeeDetailsComponent},
+  {path:"",component:MessageComponent}
 ];
 
 @NgModule({

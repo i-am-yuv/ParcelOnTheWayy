@@ -45,12 +45,12 @@ getActiveTravellers()
     this.http.get<any[]>(  `${this.apiUrl}/getActiveTravellers` ).subscribe(
       res => 
       {
-         console.log(res);
+       //  console.log(res);
         
        
        
         for (var _i = 0; _i < res.length; _i++) {
-          console.log(_i);
+        //  console.log(_i);
        
          this.transaction.availableSpace=res[_i][1].availableSpace;
          this.transaction.deliverDate=res[_i][0].deliverDate;
@@ -66,7 +66,7 @@ getActiveTravellers()
          this.transaction.travellerStatus=res[_i][0].travellerStatus;
          this.transaction.vehicleNo=res[_i][1].vehicleNo;
          this.transaction.vehicleType=res[_i][1].vehicleType;
-          console.log(this.transaction);
+         // console.log(this.transaction);
          
           this.transactions.push(Object.assign({},this.transaction));
         
@@ -76,23 +76,7 @@ getActiveTravellers()
           
          
         }
-      console.log(this.transactions);
     
-      
-        // transactionId!: number;
-        // transactionDate!: Date;
-        // travellerId!: number;
-        // vehicleId!: number;
-        // startTime!: number;
-        // endTime!: number;
-        // travellerStatus!:String;
-        // startLocation!: String;
-        // endLocation! : String;
-        // deliverDate!:Date;
-        // vehicleType!:String;
-        // vehicleNo!:String; 
-        // availableSpace!:String;
-       // console.log(this.transactions);
       }
       , err => {
         // this.toast.error({detail:"ERROR",summary:'Add User Info',duration:5000});
@@ -124,6 +108,13 @@ getActiveTravellers()
   }
 
   
-  
+  seeDetails <String>( arr :String[]){
+    console.log("inseedetails");
+    sessionStorage.setItem('seeTravellerId' , String(arr[0]) ) ;
+    sessionStorage.setItem('seeVehicleNo' , String(arr[1]) ) ;
+    console.log(sessionStorage.getItem("seeTravellerId"));
+    console.log(sessionStorage.getItem("seeVehicleNo"))
+    this.router.navigate(["user/seeDetails"]);
+  }
 
   }

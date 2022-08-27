@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/user">Parcel On The Way</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="waves-effect waves-light btn" aria-current="page" routerLink="/user">Home</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <button class="waves-effect waves-light btn" routerLink="/user/traveller">Traveller</button>
+                <button class="waves-effect waves-light btn" routerLink="/user/addUser" id="addBtn"
+                    *ngIf=this.btnVisible>Add User</button>
+                <button class="waves-effect waves-light btn" routerLink="/user/profile"
+                    *ngIf=!this.btnVisible>Profile</button>
+                <button class="waves-effect waves-light btn" (click)="logOut()">Log Out</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="container">
+    <form class="row g-3" [formGroup]="formValues" (ngSubmit)="sendRequest()">
+        <h1 style="text-align:center">Transaction Details</h1>
+        <hr>
+        <h4 style="text-align:left"> Traveller Details:</h4>
+        
+        <div class="col-md-6">
+            <label  class="form-label">First Name : {{userObj.firstName}}</label>
+        </div>
+        <div class="col-md-6">
+            <label  class="form-label">Last Name : {{userObj.lastName}}</label>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Phone Number : {{userObj.mobileNo}}</label>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Vehicle No: {{vehicleNo}} </label>
+        </div>
+
+     <hr>
+    <hr>
+    
+        
+            <h1 style="text-align:center">Please Fill Details:</h1>
+            <hr>
+            <div class="col-md-6">
+                <label for="input4" class="form-label">Your Source</label>
+                <input formControlName="source" type="text" required minlength="1" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label for="input5" class="form-label">Your Destination</label>
+                <input formControlName="destination" type="text" required minlength="1" class="form-control">
+            </div>
+
+            <div class="col-12" style="text-align:center ; margin-bottom: 15px;">
+                <button type="submit"  [disabled] = "!formValues.valid" class="btn btn-primary">Send Request</button>
+            </div>
+
+        </form>
+    
+
+    <button type="button" class="btn btn-primary"  routerLink="/user" style="margin-top:30px ; ">Back</button>
+</div>

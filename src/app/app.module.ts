@@ -26,6 +26,13 @@ import { EditUserTravellerComponent } from './traveller/edit-user-traveller/edit
 import { EditUserTravellerAadharComponent } from './traveller/edit-user-traveller-aadhar/edit-user-traveller-aadhar.component';
 import{FilterPipe} from "src/app/FilterPipe";
 import { EditVehicleDetailsComponent } from './traveller/traveller-profile/edit-vehicle-details/edit-vehicle-details.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule } from '@angular/material/dialog';
+import { SeeDetailsComponent } from './user/see-details/see-details.component';
+import { MessageComponent } from './user/message/message.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +52,9 @@ import { EditVehicleDetailsComponent } from './traveller/traveller-profile/edit-
     EditUserTravellerComponent,
     EditUserTravellerAadharComponent,
     FilterPipe,
-    EditVehicleDetailsComponent
+    EditVehicleDetailsComponent,
+    SeeDetailsComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +63,12 @@ import { EditVehicleDetailsComponent } from './traveller/traveller-profile/edit-
     ReactiveFormsModule,
     HttpClientModule,
     NgToastModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatInputModule,
+    MatButtonModule, 
+    MatCardModule,
+    MatFormFieldModule
     
   ],
   providers: [],
