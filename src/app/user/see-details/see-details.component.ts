@@ -46,7 +46,7 @@ export class SeeDetailsComponent implements OnInit {
   }
   populateProfile()
    {
-    this.http.get<any>(  `${this.apiUrl}/travellerPersonalDetails/`+sessionStorage.getItem('seeTravellerId') ).subscribe(
+     this.http.get<any>(  `${this.apiUrl}/travellerPersonalDetails/`+sessionStorage.getItem('seeTravellerId') ).subscribe(
       res => 
       { //this.formValues.firstName=res.firstName;
         this.userObj.firstName=res.firstName;

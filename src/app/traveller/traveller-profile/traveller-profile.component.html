@@ -81,7 +81,7 @@
                 <td style="text-align:center">{{this.vehicle.vehicleType}}</td>
                 <td style="text-align:center">{{this.vehicle.vehicleNo}}</td>
                 <td style="text-align:center">{{this.vehicle.availableSpace}}</td>
-                <td><button class="btn btn-success" routerLink="/user/traveller/travellerProfile/vehicleDetails/edit">Edit</button></td>
+                <td><button class="btn btn-success" routerLink="/user/traveller/travellerProfile/vehicleDetails/edit" (click) = "editVehicle(this.vehicle.vehicleId)" >Edit</button></td>
                 <td><button class="btn btn-danger" (click) = "deleteVehicle(this.vehicle.vehicleId)">Delete</button></td>
                 <td><button type="button" class="btn btn-outline-info" (click) = "selectVehicle(this.vehicle.vehicleId)" >Select</button>
                 </td>

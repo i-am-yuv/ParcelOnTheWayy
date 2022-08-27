@@ -59,7 +59,7 @@ export class EditVehicleDetailsComponent implements OnInit {
         this.toast.success({detail:"SUCCESS",summary:'Vehicle Details Edited Successfully',duration:2000});
       }
       , err => {
-        this.toast.error({detail:"Your Details Are Already Filled",summary:'Please delete your current details to add new',duration:5000});
+        this.toast.error({detail:"ERROR",summary:'Duplicate Vehicle Number',duration:5000});
       }
     )
     }

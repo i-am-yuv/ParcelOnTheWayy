@@ -116,6 +116,11 @@ export class TravellerProfileComponent implements OnInit {
       }
     )
    }
+
+   editVehicle(vehicleId : number )
+   {
+    sessionStorage.setItem('vehicleId' , String(vehicleId) ) ;
+   }
    selectVehicle(vehicleId : number )
    {
      this.toast.success({detail:"SUCCESS",summary:'Vehicle Is Selected',duration:2000});

@@ -55,7 +55,6 @@ export class CreateTransactionComponent implements OnInit {
       this.toast.info({detail:"INFO",summary:'Vehicle is not selected',duration:2000});
     }
      else{
-          
       this.transactionObj.vehicleId = Number(sessionStorage.getItem('vehicleId')) ;
       this.transactionObj.travellerId = Number(sessionStorage.getItem('travellerId')) ;
   
@@ -90,5 +89,5 @@ export class CreateTransactionComponent implements OnInit {
   }
 
 
-  
+
 }
