@@ -49,65 +49,46 @@ export class CreateTransactionComponent implements OnInit {
   transactionObj : Transaction2 =new Transaction2() ;
 
    addTransaction()
-<<<<<<< Updated upstream
   { 
-      if(Number(sessionStorage.getItem('vehicleId'))<1)
-     {  console.log("session empty");
-    this.toast.error({detail:"Error in Transaction",summary:'Please select your Vehicle from Profile',duration:5000});
-    return;
-     }
-     console.log("hi");
-    this.transactionObj.vehicleId = Number(sessionStorage.getItem('vehicleId')) ;
-    this.transactionObj.travellerId = Number(sessionStorage.getItem('travellerId')) ;
-
-    this.time= this.formValues.value.startTime.toString();
-    this.time=this.time.substring(0,2)+this.time.substring(3);
-    console.log(this.time);
-    this.transactionObj.startTime = Number(this.time);
-
-    this.time= this.formValues.value.endTime.toString();
-    this.time=this.time.substring(0,2)+this.time.substring(3);
-
-    this.transactionObj.endTime = Number(this.time);
-    this.transactionObj.travellerStatus = "Active";
-    this.transactionObj.startLocation = this.formValues.value.startLocation;
-    this.transactionObj.endLocation = this.formValues.value.endLocation;
-    this.transactionObj.deliverDate= this.formValues.value.deliverDate;
-  
-=======
-  {
     if( sessionStorage.getItem('vehicleId') === null )
     {
       this.toast.info({detail:"INFO",summary:'Vehicle is not selected',duration:2000});
     }
-    else{
+     else{
+          
       this.transactionObj.vehicleId = Number(sessionStorage.getItem('vehicleId')) ;
       this.transactionObj.travellerId = Number(sessionStorage.getItem('travellerId')) ;
-      this.transactionObj.startTime = Number(this.formValues.value.startTime);
-      this.transactionObj.endTime = Number(this.formValues.value.endTime);
+  
+      this.time= this.formValues.value.startTime.toString();
+      this.time=this.time.substring(0,2)+this.time.substring(3);
+      console.log(this.time);
+      this.transactionObj.startTime = Number(this.time);
+  
+      this.time= this.formValues.value.endTime.toString();
+      this.time=this.time.substring(0,2)+this.time.substring(3);
+  
+      this.transactionObj.endTime = Number(this.time);
       this.transactionObj.travellerStatus = "Active";
       this.transactionObj.startLocation = this.formValues.value.startLocation;
       this.transactionObj.endLocation = this.formValues.value.endLocation;
       this.transactionObj.deliverDate= this.formValues.value.deliverDate;
-    
-     
-      this.http.post<any>(  `${this.apiUrl}/transaction/add/`  , this.transactionObj ).subscribe(
-        res => 
-        {
-            console.log(res) ;
-            sessionStorage.setItem('transactionId' , res.transactionId ) ;
-    
-            this.toast.success({detail:"SUCCESS",summary:'transaction Created Successfully',duration:2000});
-            this.formValues.reset();
-        }
-        , err => {
-          this.toast.error({detail:"Error in Transection",summary:'Error in Data',duration:5000});
-        }
-      )
-    }
->>>>>>> Stashed changes
-   
+       
+        this.http.post<any>(  `${this.apiUrl}/transaction/add/`  , this.transactionObj ).subscribe(
+          res => 
+          {
+              console.log(res) ;
+              sessionStorage.setItem('transactionId' , res.transactionId ) ;
+      
+              this.toast.success({detail:"SUCCESS",summary:'transaction Created Successfully',duration:2000});
+              this.formValues.reset();
+          }
+          , err => {
+            this.toast.error({detail:"Error in Transection",summary:'Error in Data',duration:5000});
+          }
+        )
+     }
   }
-  
 
+
+  
 }
