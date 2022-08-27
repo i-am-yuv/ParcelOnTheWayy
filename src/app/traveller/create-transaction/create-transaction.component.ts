@@ -14,7 +14,7 @@ import { Transaction2 } from 'src/app/Transaction2';
   styleUrls: ['./create-transaction.component.css']
 })
 export class CreateTransactionComponent implements OnInit {
-
+  public time!:string;
   private apiUrl = environment.apiBasedUrl ;
   public formValues !: FormGroup ;
 
@@ -38,11 +38,25 @@ export class CreateTransactionComponent implements OnInit {
   transactionObj : Transaction2 =new Transaction2() ;
 
    addTransaction()
-  {
+  { 
+      if(Number(sessionStorage.getItem('vehicleId'))<1)
+     {  console.log("session empty");
+    this.toast.error({detail:"Error in Transaction",summary:'Please select your Vehicle from Profile',duration:5000});
+    return;
+     }
+     console.log("hi");
     this.transactionObj.vehicleId = Number(sessionStorage.getItem('vehicleId')) ;
     this.transactionObj.travellerId = Number(sessionStorage.getItem('travellerId')) ;
-    this.transactionObj.startTime = Number(this.formValues.value.startTime);
-    this.transactionObj.endTime = Number(this.formValues.value.endTime);
+
+    this.time= this.formValues.value.startTime.toString();
+    this.time=this.time.substring(0,2)+this.time.substring(3);
+    console.log(this.time);
+    this.transactionObj.startTime = Number(this.time);
+
+    this.time= this.formValues.value.endTime.toString();
+    this.time=this.time.substring(0,2)+this.time.substring(3);
+
+    this.transactionObj.endTime = Number(this.time);
     this.transactionObj.travellerStatus = "Active";
     this.transactionObj.startLocation = this.formValues.value.startLocation;
     this.transactionObj.endLocation = this.formValues.value.endLocation;
@@ -63,5 +77,6 @@ export class CreateTransactionComponent implements OnInit {
       }
     )
   }
+  
 
 }
