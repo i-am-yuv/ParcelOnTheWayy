@@ -24,7 +24,7 @@
   <div class="container" >
     
     
-    <h3 style="text-align:center ; margin-bottom: 25px ;text-decoration: underline;color: darkslategray ;margin-top:15px;" > Traveller List</h3>
+    <h3 style="text-align:center ; margin-bottom: 25px ;text-decoration: underline;color: darkslategray ;margin-top:15px;" > Travellers List</h3>
    
   </div>
 
@@ -84,8 +84,8 @@
 							<td>{{transaction.deliverDate | date:'dd-MM-yyyy'}} <sub> ( Time:{{transaction.startTime}} )</sub> </td>
               <td>{{transaction.vehicleType}}</td>
               <td>{{transaction.availableSpace | titlecase}}</td>
-              <td> <button (click)="seeDetails([transaction.travellerId,transaction.vehicleNo, transaction.transactionId])">Details</button></td>
-						</tr>
+              <td> <button class="btn btn-primary btn-sm" style="background-color:lightseagreen" (click)="seeDetails([transaction.travellerId,transaction.vehicleNo, transaction.transactionId])">Details</button></td>
+            </tr> 
           </tbody>
           
 				</table>
