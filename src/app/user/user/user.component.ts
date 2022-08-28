@@ -112,6 +112,7 @@ getActiveTravellers()
     console.log("inseedetails");
     sessionStorage.setItem('seeTravellerId' , String(arr[0]) ) ;
     sessionStorage.setItem('seeVehicleNo' , String(arr[1]) ) ;
+    sessionStorage.setItem('seeTransactionId', String(arr[2]));
     console.log(sessionStorage.getItem("seeTravellerId"));
     console.log(sessionStorage.getItem("seeVehicleNo"))
     this.router.navigate(["user/seeDetails"]);

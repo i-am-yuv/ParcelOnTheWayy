@@ -84,7 +84,7 @@
 							<td>{{transaction.deliverDate | date:'dd-MM-yyyy'}} <sub> ( Time:{{transaction.startTime}} )</sub> </td>
               <td>{{transaction.vehicleType}}</td>
               <td>{{transaction.availableSpace | titlecase}}</td>
-              <td> <button (click)="seeDetails([transaction.travellerId,transaction.vehicleNo])">Details</button></td>
+              <td> <button (click)="seeDetails([transaction.travellerId,transaction.vehicleNo, transaction.transactionId])">Details</button></td>
 						</tr>
           </tbody>
           

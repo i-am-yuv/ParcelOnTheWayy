@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit
   private apiUrl = environment.apiBasedUrl;
   public loginValues !: FormGroup;
 
- signupObj : SignUp = new SignUp() ;
+  signupObj : SignUp = new SignUp() ;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private toast: NgToastService ) { }
 
