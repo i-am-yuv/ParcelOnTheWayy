@@ -16,24 +16,24 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./see-details.component.css']
 })
 export class SeeDetailsComponent implements OnInit {
-  
-  private apiUrl = environment.apiBasedUrl ;
-  userObj : User = new User() ;
-  userRequestsObj : User_requests = new User_requests() ;
+
+  private apiUrl = environment.apiBasedUrl;
+  userObj: User = new User();
+  userRequestsObj: User_requests = new User_requests();
   vehicleNo!: String;
-  addressObj : Address = new Address() ;
-  travellerObj : Traveller = new Traveller;
-  btnVisible : Boolean = true ; 
-  formValues = new FormGroup ({
-   
+  addressObj: Address = new Address();
+  travellerObj: Traveller = new Traveller;
+  btnVisible: Boolean = true;
+  formValues = new FormGroup({
+
     source: new FormControl(),
-    destination:new FormControl()
+    destination: new FormControl()
   });
-  public viewForm!:FormGroup;
-  transaction:Transaction=new Transaction();
-  public formbuilder!:FormBuilder;
-  constructor(private router : Router,private http : HttpClient , private toast: NgToastService,private formBuilder : FormBuilder) { }
- 
+  public viewForm!: FormGroup;
+  transaction: Transaction = new Transaction();
+  public formbuilder!: FormBuilder;
+  constructor(private router: Router, private http: HttpClient, private toast: NgToastService, private formBuilder: FormBuilder) { }
+
   ngOnInit(): void {
 
     this.formValues = this.formBuilder.group(
@@ -41,102 +41,104 @@ export class SeeDetailsComponent implements OnInit {
         source: ['', Validators.required],
         destination: ['', Validators.required]
       })
-    
-    if( sessionStorage.getItem('addBtnVisible') === 'false' )
-    {
-      this.btnVisible = false ;
+
+    if (sessionStorage.getItem('addBtnVisible') === 'false') {
+      this.btnVisible = false;
     }
-    else 
-    {
-      this.btnVisible = true ;
+    else {
+      this.btnVisible = true;
     }
-   
+
     this.populateProfile();
   }
-  populateProfile()
-   {
-     this.http.get<any>(  `${this.apiUrl}/travellerPersonalDetails/`+sessionStorage.getItem('seeTravellerId') ).subscribe(
-      res => 
-      { //this.formValues.firstName=res.firstName;
-        this.userObj.firstName=res.firstName;
-        this.userObj.lastName=res.lastName;
-        this.userObj.mobileNo=res.mobileNo;
+  populateProfile() {
+    this.http.get<any>(`${this.apiUrl}/travellerPersonalDetails/` + sessionStorage.getItem('seeTravellerId')).subscribe(
+      res => { //this.formValues.firstName=res.firstName;
+        this.userObj.firstName = res.firstName;
+        this.userObj.lastName = res.lastName;
+        this.userObj.mobileNo = res.mobileNo;
         console.log(this.userObj);
-        this.vehicleNo= sessionStorage.getItem("seeVehicleNo")!;
+        this.vehicleNo = sessionStorage.getItem("seeVehicleNo")!;
         console.log(this.vehicleNo);
       }
       , err => {
         // this.toast.error({detail:"ERROR",summary:'Add User Info',duration:5000});
-        console.log(err) ;
+        console.log(err);
       }
     )
-    this.http.get<any>(  `${this.apiUrl}/address/`+sessionStorage.getItem('IdOfAddress') ).subscribe(
-      res1 => 
-      {
-          this.addressObj.city = res1.city ;
-          this.addressObj.landmark = res1.landmark ;
-          this.addressObj.pincode = res1.pincode ;
-          this.addressObj.state = res1.state ;
-          this.addressObj.street = res1.street ;
+    this.http.get<any>(`${this.apiUrl}/address/` + sessionStorage.getItem('IdOfAddress')).subscribe(
+      res1 => {
+        this.addressObj.city = res1.city;
+        this.addressObj.landmark = res1.landmark;
+        this.addressObj.pincode = res1.pincode;
+        this.addressObj.state = res1.state;
+        this.addressObj.street = res1.street;
       }
       , err => {
         // this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});
-        console.log(err) ;
+        console.log(err);
       }
     )
-    this.http.get<any>(  `${this.apiUrl}/traveller/view/`+sessionStorage.getItem('travellerId')).subscribe(
-      res => 
-      {
-          this.travellerObj.aadharno = res.aadharno ;
+    this.http.get<any>(`${this.apiUrl}/traveller/view/` + sessionStorage.getItem('travellerId')).subscribe(
+      res => {
+        this.travellerObj.aadharno = res.aadharno;
       }
       , err => {
         // this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});
-        console.log(err) ;
+        console.log(err);
       }
     )
-   }
+  }
 
-  logOut()
-  {
-    sessionStorage.clear() ;
-    this.toast.success({detail:"SUCCESS",summary:'Log Out Successfully',duration:2000});
+  logOut() {
+    sessionStorage.clear();
+    this.toast.success({ detail: "SUCCESS", summary: 'Log Out Successfully', duration: 2000 });
     this.router.navigate(["login"]);
   }
 
-  sendRequest(){
+  sendRequest() {
     this.userRequestsObj.source = this.formValues.value.source;
     this.userRequestsObj.destination = this.formValues.value.destination;
     this.userRequestsObj.orderStatus = "pending";
-    this.userRequestsObj.transactionId = Number( sessionStorage.getItem('seeTransactionId') );
-    this.userRequestsObj.travellerId = Number( sessionStorage.getItem('seeTravellerId') );
+    this.userRequestsObj.transactionId = Number(sessionStorage.getItem('seeTransactionId'));
+    this.userRequestsObj.travellerId = Number(sessionStorage.getItem('seeTravellerId'));
     // console.log(sessionStorage.getItem('seeTransactionId') );
-    this.userRequestsObj.userId = Number( sessionStorage.getItem('userID') ) ;
+    this.userRequestsObj.userId = Number(sessionStorage.getItem('userID'));
 
-    this.http.get<any>(  `${this.apiUrl}/travellerPersonalDetails/`).subscribe(
+    this.http.get<any>(`${this.apiUrl}/viewUser/`+sessionStorage.getItem('userID')).subscribe(
       res => 
-      { //this.formValues.firstName=res.firstName;
-        this.userRequestsObj.firstName=res.firstName;
-        this.userRequestsObj.lastName=res.lastName;
-        this.userRequestsObj.mobileNo=res.mobileNo;
-        console.log(this.userRequestsObj);
+      {
+        console.log("In user api") ; 
+        this.userRequestsObj.userFirstName = res.firstName ;
+        this.userRequestsObj.userLastName = res.lastName ;
+        this.userRequestsObj.userPhoneNo = res.mobileNo ;
+        this.sendRequest1() ;
       }
       , err => {
-        // this.toast.error({detail:"ERROR",summary:'Add User Info',duration:5000});
-        console.log(err) ;
+        console.log('error here');
+        console.log(err);
       }
     )
-    // console.log(sessionStorage.getItem('userID') );
-    // console.log(this.userRequestsObj);
-    this.http.post<any>(  `${this.apiUrl}/userRequests/add/`, this.userRequestsObj).subscribe(
-      res => {
-        this.toast.success({detail:"SUCCESS",summary:'Request Sent',duration:5000});
-        this.formValues.reset();
-        sessionStorage.setItem('userRequestsId' , res.user_requests_id);
-      }
-      , err => {
-        this.toast.error({detail:"ERROR",summary:'You have already send a request',duration:5000});
-      }
-    )
+    
+  }
+  sendRequest1()
+  {
+    console.log("start") ;
+    console.log( this.userRequestsObj.userFirstName ) ;
+    console.log( this.userRequestsObj.userLastName ) ;
+    console.log( this.userRequestsObj.userPhoneNo ) ; 
+    this.http.post<any>( `${this.apiUrl}/userRequests/add/`, this.userRequestsObj).subscribe(
+     res => {
+       console.log(res) ;
+       this.toast.success({ detail: "SUCCESS", summary: 'Request Sent', duration: 5000 });
+       this.formValues.reset();
+       sessionStorage.setItem('userRequestsId', res.user_requests_id);
+     }
+     , err => {
+       console.log( err ) ;
+       this.toast.error({ detail: "ERROR", summary: 'You have already send a request', duration: 5000 });
+     }
+   )
   }
 
 }

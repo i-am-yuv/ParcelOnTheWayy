@@ -5,7 +5,7 @@ export class User_requests{
     userId !: number ;
     transactionId !: number ;
     travellerId !: number;
-    firstName !: String;
-    lastName !: String;
-    mobileNo !: number ;
+    userFirstName !: String;
+    userLastName !: String;
+    userPhoneNo !: String ;
 }

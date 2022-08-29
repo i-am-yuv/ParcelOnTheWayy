@@ -1,11 +1,10 @@
+
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
-import { HttpClient } from '@angular/common/http';
-import { PendingRequest } from 'src/app/PendingRequest';
 import { environment } from 'src/environments/environment';
-
-
+import { User_requests } from 'src/app/User_requests';
 @Component({
   selector: 'app-traveller',
   templateUrl: './traveller.component.html',
@@ -13,19 +12,15 @@ import { environment } from 'src/environments/environment';
 })
 export class TravellerComponent implements OnInit {
 
-  showTravellerProfile : Boolean = true ;
   private apiUrl = environment.apiBasedUrl ;
 
-  btnVisible : Boolean = true ; 
+  showTravellerProfile : Boolean = true ;
   
-  request:PendingRequest=new PendingRequest();
+  userRequestObject:User_requests[] = new Array() ;
   
-  
-  requests: PendingRequest[]=[];
   public searchString!: string;
-  constructor(private http : HttpClient ,  private router: Router, private toast: NgToastService) { }
-  
-  
+
+  constructor( private http : HttpClient , private router: Router, private toast: NgToastService) { }
 
   ngOnInit(): void 
   {
@@ -36,40 +31,8 @@ export class TravellerComponent implements OnInit {
     else{
          this.showTravellerProfile = true ;
     }
-    this.getPendingRequests();
+    this.getTravellerRequests() ;
   }
-
-  getPendingRequests()
-   {
-    this.http.get<any[]>(  `${this.apiUrl}/userRequests` ).subscribe(
-      res => 
-      {
-        
-        for (var _i = 0; _i < res.length; _i++) {
-       
-         this.request.userId=res[_i][0].userId;
-         this.request.transactionId=res[_i][0].transactionId;
-         this.request.travellerId=res[_i][0].travellerId;
-         this.request.orderStatus=res[_i][0].orderStatus;
-         this.request.destination=res[_i][0].destination;
-         this.request.source=res[_i][0].source;
-         this.request.userFirstName=res[_i][0].userFirstName;
-         this.request.userLastName=res[_i][0].userLastName;
-         this.request.userPhoneNo=res[_i][0].userPhoneNo;
-        
-         
-          this.requests.push(Object.assign({},this.request));
-        
-        }
-    
-      }
-      , err => {
-        console.log(err) ;
-      }
-    )
-   }
-    
-
 
   logOut()
   {
@@ -81,5 +44,18 @@ export class TravellerComponent implements OnInit {
     else{
     }
   }
-
+getTravellerRequests()
+{
+ this.http.get<any[]>(  `${this.apiUrl}/userRequests/`+sessionStorage.getItem('travellerId') ).subscribe(
+   res => 
+     {
+      this.userRequestObject = res ;
+      console.log(res) ;
+     }
+   , err => {
+           console.log(err) ;
+       }
+ )
 }
+}
+
