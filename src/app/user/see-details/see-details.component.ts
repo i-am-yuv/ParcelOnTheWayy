@@ -60,26 +60,33 @@ export class SeeDetailsComponent implements OnInit {
         console.log(this.userObj);
         this.vehicleNo = sessionStorage.getItem("seeVehicleNo")!;
         console.log(this.vehicleNo);
+        this.populateProfileaddress();
       }
       , err => {
         // this.toast.error({detail:"ERROR",summary:'Add User Info',duration:5000});
         console.log(err);
       }
     )
-    this.http.get<any>(`${this.apiUrl}/address/` + sessionStorage.getItem('IdOfAddress')).subscribe(
+  }
+  populateProfileaddress(){
+    this.http.get<any>(`${this.apiUrl}/addressByTravellerId/` + sessionStorage.getItem('seeTravellerId')).subscribe(
       res1 => {
         this.addressObj.city = res1.city;
         this.addressObj.landmark = res1.landmark;
         this.addressObj.pincode = res1.pincode;
         this.addressObj.state = res1.state;
         this.addressObj.street = res1.street;
+        console.log( sessionStorage.getItem('seeTravellerId'));
+        this.populateProfileaadhar();
       }
       , err => {
         // this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});
         console.log(err);
       }
     )
-    this.http.get<any>(`${this.apiUrl}/traveller/view/` + sessionStorage.getItem('travellerId')).subscribe(
+  }
+  populateProfileaadhar(){
+    this.http.get<any>(`${this.apiUrl}/traveller/view/` + sessionStorage.getItem('seeTravellerId')).subscribe(
       res => {
         this.travellerObj.aadharno = res.aadharno;
       }
@@ -97,6 +104,7 @@ export class SeeDetailsComponent implements OnInit {
   }
 
   sendRequest() {
+
     this.userRequestsObj.source = this.formValues.value.source;
     this.userRequestsObj.destination = this.formValues.value.destination;
     this.userRequestsObj.orderStatus = "pending";
@@ -104,8 +112,9 @@ export class SeeDetailsComponent implements OnInit {
     this.userRequestsObj.travellerId = Number(sessionStorage.getItem('seeTravellerId'));
     // console.log(sessionStorage.getItem('seeTransactionId') );
     this.userRequestsObj.userId = Number(sessionStorage.getItem('userID'));
-
-    this.http.get<any>(`${this.apiUrl}/viewUser/`+sessionStorage.getItem('userID')).subscribe(
+      console.log(sessionStorage.getItem('userID') );
+  
+    this.http.get<any>(`${this.apiUrl}/viewUser/`+ sessionStorage.getItem('userID') ).subscribe(
       res => 
       {
         console.log("In user api") ; 
