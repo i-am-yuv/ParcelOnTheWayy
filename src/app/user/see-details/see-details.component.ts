@@ -111,6 +111,20 @@ export class SeeDetailsComponent implements OnInit {
     this.userRequestsObj.travellerId = Number( sessionStorage.getItem('seeTravellerId') );
     // console.log(sessionStorage.getItem('seeTransactionId') );
     this.userRequestsObj.userId = Number( sessionStorage.getItem('userID') ) ;
+
+    this.http.get<any>(  `${this.apiUrl}/travellerPersonalDetails/`).subscribe(
+      res => 
+      { //this.formValues.firstName=res.firstName;
+        this.userRequestsObj.firstName=res.firstName;
+        this.userRequestsObj.lastName=res.lastName;
+        this.userRequestsObj.mobileNo=res.mobileNo;
+        console.log(this.userRequestsObj);
+      }
+      , err => {
+        // this.toast.error({detail:"ERROR",summary:'Add User Info',duration:5000});
+        console.log(err) ;
+      }
+    )
     // console.log(sessionStorage.getItem('userID') );
     // console.log(this.userRequestsObj);
     this.http.post<any>(  `${this.apiUrl}/userRequests/add/`, this.userRequestsObj).subscribe(
