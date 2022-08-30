@@ -46,7 +46,7 @@ export class TravellerComponent implements OnInit {
   }
 getTravellerRequests()
 {
- this.http.get<any[]>(  `${this.apiUrl}/userRequests/`+sessionStorage.getItem('travellerId') ).subscribe(
+ this.http.get<any>(  `${this.apiUrl}/userRequests/`+sessionStorage.getItem('travellerId') ).subscribe(
    res => 
      {
       this.userRequestObject = res ;
