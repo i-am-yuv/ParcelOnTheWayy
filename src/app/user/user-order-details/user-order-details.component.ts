@@ -7,11 +7,11 @@ import { environment } from 'src/environments/environment';
 import { OrderDetails } from 'src/app/OrderDetails';
 
 @Component({
-  selector: 'app-orders',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css']
+  selector: 'app-user-order-details',
+  templateUrl: './user-order-details.component.html',
+  styleUrls: ['./user-order-details.component.css']
 })
-export class OrdersComponent implements OnInit {
+export class UserOrderDetailsComponent implements OnInit {
   
   private apiUrl = environment.apiBasedUrl ;
   orderObj : OrderDetails[] = new Array();
@@ -27,7 +27,7 @@ export class OrdersComponent implements OnInit {
   
   orderDetails()
    {
-    this.http.get<any>(  `${this.apiUrl}/getTravellerOrderDetails/`).subscribe(
+    this.http.get<any>(  `${this.apiUrl}/getUserOrderDetails/`).subscribe(
       res => 
       {
           this.orderObj = res ;
@@ -42,3 +42,4 @@ export class OrdersComponent implements OnInit {
    }
  
 }
+
