@@ -81,7 +81,7 @@
 						<tr *ngFor="let transaction of transactions | filterAll:searchString" >
 							<td>{{transaction.startLocation | titlecase}}</td>
 							<td>{{transaction.endLocation | titlecase}}</td>
-							<td>{{transaction.deliverDate | date:'dd-MM-yyyy'}} <sub> ( Time:{{transaction.startTime}} )</sub> </td>
+							<td>{{transaction.deliverDate | date:'dd-MM-yyyy'}} <sub> ( Time:{{transaction.startTime | timeformat}} )</sub> </td>
               <td>{{transaction.vehicleType}}</td>
               <td>{{transaction.availableSpace | titlecase}}</td>
               <td> <button class="btn btn-primary btn-sm" style="background-color:lightseagreen" (click)="seeDetails([transaction.travellerId,transaction.vehicleNo, transaction.transactionId])">Details</button></td>

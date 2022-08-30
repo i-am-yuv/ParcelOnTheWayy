@@ -33,6 +33,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule } from '@angular/material/dialog';
 import { SeeDetailsComponent } from './user/see-details/see-details.component';
 import { MessageComponent } from './user/message/message.component';
+import { TimeFormatPipe } from './TimeFormatPipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,8 @@ import { MessageComponent } from './user/message/message.component';
     FilterPipe,
     EditVehicleDetailsComponent,
     SeeDetailsComponent,
-    MessageComponent
+    MessageComponent,
+    TimeFormatPipe
   ],
   imports: [
     BrowserModule,
