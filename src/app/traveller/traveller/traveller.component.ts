@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { environment } from 'src/environments/environment';
 import { User_requests } from 'src/app/User_requests';
+import { GetRequest } from 'src/app/GetRequest';
 @Component({
   selector: 'app-traveller',
   templateUrl: './traveller.component.html',
@@ -15,8 +16,8 @@ export class TravellerComponent implements OnInit {
   private apiUrl = environment.apiBasedUrl ;
 
   showTravellerProfile : Boolean = true ;
-  
-  userRequestObject:User_requests[] = new Array() ;
+
+  getRequestObject : GetRequest[] = new Array() ;
   
   public searchString!: string;
 
@@ -47,10 +48,10 @@ export class TravellerComponent implements OnInit {
   }
 getTravellerRequests()
 {
- this.http.get<any>(  `${this.apiUrl}/userRequests/`+sessionStorage.getItem('travellerId') ).subscribe(
+ this.http.get<any>(`${this.apiUrl}/userRequests/`+sessionStorage.getItem('travellerId') ).subscribe(
    res => 
      {
-      this.userRequestObject = res ;
+      this.getRequestObject = res ;
     
       console.log(res) ;
      }
