@@ -28,8 +28,9 @@ export class  TimeFormatPipe implements PipeTransform {
         else if(time.length==3)
         {str1="0";
         str2= time.substr(0,1);
+        
         str3=time.substr(1,2);
-        ans= ans.concat(str1.toString(),str2.toString(),str3.toString());
+        ans= ans.concat(str1.toString(),str2.toString(),":",str3.toString());
          
          
     

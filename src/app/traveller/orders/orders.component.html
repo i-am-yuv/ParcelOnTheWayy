@@ -80,9 +80,9 @@
                     <td style="text-align:center">{{ key.CustomerMobileNumber}}</td>
                     <td style="text-align:center">{{ key.orderPickUpLocation}}</td>   
                     <td style="text-align:center">{{ key.orderDropLocation}}</td>
-                    <td style="text-align:center">{{ key.orderStartTime}}</td>
-                    <td style="text-align:center">{{ key.orderEndTime}}</td>
-                    <td style="text-align:center">{{ key.orderDate}}</td>
+                    <td style="text-align:center">{{ key.orderStartTime| timeformat}}</td>
+                    <td style="text-align:center">{{ key.orderEndTime | timeformat}}</td>
+                    <td style="text-align:center">{{ key.orderDate |date:'dd-MM-yyyy'}}</td>
                     <td style="text-align:center">{{ key.orderStatus}}</td>
                   </tr>
             </tbody>
