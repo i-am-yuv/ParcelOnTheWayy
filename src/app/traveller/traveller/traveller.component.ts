@@ -50,6 +50,7 @@ getTravellerRequests()
    res => 
      {
       this.userRequestObject = res ;
+    
       console.log(res) ;
      }
    , err => {
@@ -57,5 +58,21 @@ getTravellerRequests()
        }
  )
 }
+
+updateStatus(userRequestId : number )
+{
+  this.http.put<any[]>(  `${this.apiUrl}/orderDetails/reject/`+userRequestId , null ).subscribe(
+    res => 
+      {
+       console.log(res) ;
+        this.ngOnInit() ;
+      }
+    , err => {
+            console.log(err) ;
+        }
+  )
+}
+
+
 }
 

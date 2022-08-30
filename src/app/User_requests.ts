@@ -1,4 +1,5 @@
 export class User_requests{
+    userRequestId !: number ;
     source !: String ;
     destination !: String ;
     orderStatus !: String ;
