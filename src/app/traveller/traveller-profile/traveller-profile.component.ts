@@ -106,11 +106,10 @@ export class TravellerProfileComponent implements OnInit {
     this.http.delete<any>( `${this.apiUrl}/vehicle/`+vehicleId).subscribe(
       res => 
       {
-          // console.log(res);
-          
           sessionStorage.removeItem('vehicleId') ;
           this.ngOnInit();
           this.toast.success({detail:"SUCCESS",summary:'Vehicle Deleted Successfully!!',duration:2000});
+          window.location.reload();
           console.log(res);
       }
       , err => {

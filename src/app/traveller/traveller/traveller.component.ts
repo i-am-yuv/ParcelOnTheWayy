@@ -32,6 +32,7 @@ export class TravellerComponent implements OnInit {
          this.showTravellerProfile = true ;
     }
     this.getTravellerRequests() ;
+    
   }
 
   logOut()
@@ -82,6 +83,7 @@ acceptOrder( userRequestId : number )
        console.log(res) ;
         this.ngOnInit() ;
         this.toast.success({detail:"SUCCESS",summary:'Request Accepted Successfully',duration:2000});
+        window.location.reload();
       }
     , err => {
             console.log(err) ;
