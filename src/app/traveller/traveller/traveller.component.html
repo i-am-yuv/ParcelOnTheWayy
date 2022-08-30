@@ -85,7 +85,7 @@
                 <td>{{userReq.userPhoneNo}} </td>
                 <td>{{userReq.source}}</td>
                 <td>{{userReq.destination}}</td>
-                <td> <button class="btn btn-primary btn-sm" style="background-color:lightseagreen">Accept</button></td>
+                <td> <button class="btn btn-primary btn-sm" style="background-color:lightseagreen" (click)="acceptOrder( userReq.userRequestId)" >Accept</button></td>
                 <td> <button class="btn btn-danger btn-sm" style="background-color: crimson;" (click)="updateStatus( userReq.userRequestId)" >Remove</button></td>
               </tr> 
             </tbody>

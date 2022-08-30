@@ -66,6 +66,22 @@ updateStatus(userRequestId : number )
       {
        console.log(res) ;
         this.ngOnInit() ;
+        this.toast.success({detail:"SUCCESS",summary:'Request Removed Successfully',duration:2000});
+    
+      }
+    , err => {
+            console.log(err) ;
+        }
+  )
+}
+acceptOrder( userRequestId : number )
+{
+  this.http.post<any[]>(  `${this.apiUrl}/orderDetails/accept/`+userRequestId , null ).subscribe(
+    res => 
+      {
+       console.log(res) ;
+        this.ngOnInit() ;
+        this.toast.success({detail:"SUCCESS",summary:'Request Accepted Successfully',duration:2000});
       }
     , err => {
             console.log(err) ;
