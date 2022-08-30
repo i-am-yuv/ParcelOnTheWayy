@@ -14,20 +14,23 @@ import { OrderDetails } from 'src/app/OrderDetails';
 export class OrdersComponent implements OnInit {
   
   private apiUrl = environment.apiBasedUrl ;
+
   orderObj : OrderDetails[] = new Array();
+  
   public searchString!: string;
 
     
   constructor( private formBuilder : FormBuilder , private http : HttpClient , private router : Router , private toast: NgToastService )
    { }
 
-  ngOnInit(): void {
-    this.orderDetails() ;
+  ngOnInit(): void 
+  {
+    this.travellerOrderDetails() ;
   }
   
-  orderDetails()
+  travellerOrderDetails()
    {
-    this.http.get<any>(  `${this.apiUrl}/getTravellerOrderDetails/`).subscribe(
+    this.http.get<any>(  `${this.apiUrl}/getTravellerOrderDetails/`+sessionStorage.getItem('travellerId') ).subscribe(
       res => 
       {
           this.orderObj = res ;

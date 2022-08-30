@@ -49,47 +49,43 @@
           <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%" >
             <thead>
               <tr>
-                <th>Order Id</th>
-                <th>User Name</th>
-                <th>Phone Number</th>
+                <th style="text-align:center" >S.No.</th>
+                <th style="text-align:center">Customer Name</th>
+                <th style="text-align:center">Customer Phone Number</th>
+                <th style="text-align:center">Order PickUp Location</th>
+                <th style="text-align:center">Order Drop Location</th>
+                <th style="text-align:center">Order Start Time</th>
+                <th style="text-align:center">Order End Time</th>
+                <th style="text-align:center">Order Date</th>
                 <th>Order Status</th>
-                <th>Start Time</th>
-                <th>End Time</th>
-                <th>Pickup location</th>
-                <th>Drop Location</th>
-                <th>Order Date</th>
-                <th>Deliver Date</th>
               </tr>
             </thead>
             <tfoot>
               <tr>
-                <th>Order Id</th>
-                <th>Traveller Name</th>
-                <th>Phone Number</th>
-                <th>Order Status</th>
-                <th>Start Time</th>
-                <th>End Time</th>
-                <th>Pickup location</th>
-                <th>Drop Location</th>
-                <th>Order Date</th>
-                <th>Deliver Date</th>
+                <th style="text-align:center">S.No.</th>
+                <th style="text-align:center">Customer Name</th>
+                <th style="text-align:center">Customer Phone Number</th>
+                <th style="text-align:center">Order PickUp Location</th>
+                <th style="text-align:center">Order Drop Location</th>
+                <th style="text-align:center">Order Start Time</th>
+                <th style="text-align:center">Order End Time</th>
+                <th style="text-align:center">Order Date</th>
+                <th style="text-align:center">Order Status</th>
               </tr>
             </tfoot>
             <tbody>
-              <tr *ngFor="let order of orderObj | filterAll:searchString" >
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>{{order.orderStatus}}</td>
-                <td>{{order.expectedStartTime}}</td>
-                <td>{{order.expectedEndTime}} </td>
-                <td>{{order.pickUpLocation}}</td>
-                <td>{{order.dropLocation}}</td>
-                <td>{{order.orderDate}}</td>
-                <td>{{order.deliverDate}}</td>
-              </tr> 
+                <tr   *ngFor="let key of orderObj|filterAll:searchString ;  index as i ;   " >
+                    <td scope="row" >{{i+1}}</td>
+                    <td style="text-align:center">{{ key.CustomerName}}</td>
+                    <td style="text-align:center">{{ key.CustomerMobileNumber}}</td>
+                    <td style="text-align:center">{{ key.orderPickUpLocation}}</td>   
+                    <td style="text-align:center">{{ key.orderDropLocation}}</td>
+                    <td style="text-align:center">{{ key.orderStartTime}}</td>
+                    <td style="text-align:center">{{ key.orderEndTime}}</td>
+                    <td style="text-align:center">{{ key.orderDate}}</td>
+                    <td style="text-align:center">{{ key.orderStatus}}</td>
+                  </tr>
             </tbody>
-            
           </table>
           </div>
           </div>
