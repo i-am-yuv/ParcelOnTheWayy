@@ -124,7 +124,7 @@ export class SeeDetailsComponent implements OnInit {
         this.sendRequest1() ;
       }
       , err => {
-        console.log('error here');
+        this.toast.error({ detail: "Can't Send a request", summary: 'Please fill your profile Details', duration: 5000 });
         console.log(err);
       }
     )
@@ -142,6 +142,7 @@ export class SeeDetailsComponent implements OnInit {
        this.toast.success({ detail: "SUCCESS", summary: 'Request Sent', duration: 5000 });
        this.formValues.reset();
        sessionStorage.setItem('userRequestsId', res.user_requests_id);
+       this.router.navigate(["user"]);
      }
      , err => {
        console.log( err ) ;
