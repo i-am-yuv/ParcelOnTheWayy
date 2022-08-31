@@ -85,10 +85,17 @@
                 <td>{{userReq.TransactionId}}</td>
                 <td>{{userReq.UserName | titlecase}}</td>
                 <td>{{userReq.PhoneNo}} </td>
+<<<<<<< HEAD
                 <td>{{userReq.Source | titlecase}}</td>
                 <td>{{userReq.Destination | titlecase}}</td>
                 <td>{{userReq.DeliverDate | date:'dd-MM-yyyy'}}</td>
                 <td>{{userReq.StartTime | timeformat}}</td>
+=======
+                <td>{{userReq.Source}}</td>
+                <td>{{userReq.Destination}}</td>
+                <td>{{userReq.DeliverDate |date:'dd-MM-yyyy' }} </td>
+                <td>{{userReq.StartTime|timeformat}} </td>
+>>>>>>> 42bfd89d1d0ce9b8b483e0199658fe5fcaa650e1
                 <td> <button class="btn btn-primary btn-sm" style="background-color:lightseagreen" (click)="acceptOrder( userReq.userRequestId)" >Accept</button></td>
                 <td> <button class="btn btn-danger btn-sm" style="background-color: crimson;" (click)="updateStatus( userReq.userRequestId)" >Remove</button></td>
               </tr> 
