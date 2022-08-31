@@ -59,33 +59,33 @@
 				<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%" >
 					<thead>
 						<tr>
-							<th>Start Location</th>
-							<th>End Location</th>
-							<th>Start Time</th>
-							<th>Means of Transport</th>
-							<th>Available Space</th>
-							<th>Details</th>
+							<th style="text-align:center">Start Location</th>
+							<th style="text-align:center">End Location</th>
+							<th style="text-align:center">Start Time</th>
+							<th style="text-align:center">Means of Transport</th>
+							<th style="text-align:center">Available Space</th>
+							<th style="text-align:center">Details</th>
 						</tr>
 					</thead>
 					<tfoot>
 						<tr>
-							<th>Start Location</th>
-							<th>End Location</th>
-							<th>Delivery Date</th>
-							<th>Means of Transport</th>
-							<th>Available Space</th>
-							<th>Details</th>
+							<th style="text-align:center">Start Location</th>
+							<th style="text-align:center">End Location</th>
+							<th style="text-align:center">Delivery Date</th>
+							<th style="text-align:center">Means of Transport</th>
+							<th style="text-align:center">Available Space</th>
+							<th style="text-align:center">Details</th>
 						</tr>
 					</tfoot>
           
 					<tbody>
 						<tr *ngFor="let transaction of transactions | filterAll:searchString" >
-							<td>{{transaction.startLocation | titlecase}}</td>
-							<td>{{transaction.endLocation | titlecase}}</td>
-							<td>{{transaction.deliverDate | date:'dd-MM-yyyy'}} <sub> ( Time:{{transaction.startTime | timeformat}} )</sub> </td>
-              <td>{{transaction.vehicleType}}</td>
-              <td>{{transaction.availableSpace | titlecase}}</td>
-              <td> <button class="btn btn-primary btn-sm" style="background-color:lightseagreen" (click)="seeDetails([transaction.travellerId,transaction.vehicleNo, transaction.transactionId])">Details</button></td>
+							<td style="text-align:center">{{transaction.startLocation | titlecase}}</td>
+							<td style="text-align:center">{{transaction.endLocation | titlecase}}</td>
+							<td style="text-align:center">{{transaction.deliverDate | date:'dd-MM-yyyy'}} <sub> ( Time:{{transaction.startTime | timeformat}} )</sub> </td>
+              <td style="text-align:center">{{transaction.vehicleType}}</td>
+              <td style="text-align:center">{{transaction.availableSpace | titlecase}}</td>
+              <td style="text-align:center"> <button class="btn btn-primary btn-sm" style="background-color:lightseagreen" (click)="seeDetails([transaction.travellerId,transaction.vehicleNo, transaction.transactionId])">Details</button></td>
             </tr> 
           </tbody>
           

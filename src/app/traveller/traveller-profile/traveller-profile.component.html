@@ -66,24 +66,24 @@
         <table class="table"  *ngIf="this.vehicleObj.length!=0"> 
             <thead>
               <tr>
-                <th scope="col">S.No.</th>
-                <th scope="col">Vehicle Name</th>
-                <th scope="col">Vehicle Number</th>
-                <th scope="col">Available Space</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
-                <th scope="col">Travelling With</th>
+                <th scope="col" style="text-align:center">S.No.</th>
+                <th scope="col" style="text-align:center">Vehicle Name</th>
+                <th scope="col" style="text-align:center">Vehicle Number</th>
+                <th scope="col" style="text-align:center">Available Space</th>
+                <th scope="col" style="text-align:center">Edit</th>
+                <th scope="col" style="text-align:center">Delete</th>
+                <th scope="col" style="text-align:center">Travelling With</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let vehicle of vehicleObj; index as i ">
-                <th scope="row">{{i+1}}</th>
+                <th scope="row" style="text-align:center">{{i+1}}</th>
                 <td style="text-align:center">{{this.vehicle.vehicleType}}</td>
                 <td style="text-align:center">{{this.vehicle.vehicleNo}}</td>
                 <td style="text-align:center">{{this.vehicle.availableSpace}}</td>
-                <td><button class="btn btn-success" routerLink="/user/traveller/travellerProfile/vehicleDetails/edit" (click) = "editVehicle(this.vehicle.vehicleId)" >Edit</button></td>
-                <td><button class="btn btn-danger" (click) = "deleteVehicle(this.vehicle.vehicleId)">Delete</button></td>
-                <td><button type="button" class="btn btn-outline-info" (click) = "selectVehicle(this.vehicle.vehicleId)" >Select</button>
+                <td style="text-align:center"><button class="btn btn-success" routerLink="/user/traveller/travellerProfile/vehicleDetails/edit" (click) = "editVehicle(this.vehicle.vehicleId)" >Edit</button></td>
+                <td style="text-align:center"><button class="btn btn-danger" (click) = "deleteVehicle(this.vehicle.vehicleId)">Delete</button></td>
+                <td style="text-align:center"><button type="button" class="btn btn-outline-info" (click) = "selectVehicle(this.vehicle.vehicleId)" >Select</button>
                 </td>
               </tr>
             </tbody>

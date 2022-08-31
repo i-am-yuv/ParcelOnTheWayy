@@ -56,43 +56,43 @@
           <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%" >
             <thead>
               <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Phone Number</th>
-                <th>Package Source</th>
-                <th>Package Destination</th>
-                <th>Deliver Date</th>
-                <th>Start Time</th>
-                <th>Accept</th>
-                <th>Reject</th>
+                <th style="text-align:center">Id</th>
+                <th style="text-align:center">Name</th>
+                <th style="text-align:center">Phone Number</th>
+                <th style="text-align:center">Package Source</th>
+                <th style="text-align:center">Package Destination</th>
+                <th style="text-align:center">Deliver Date</th>
+                <th style="text-align:center">Start Time</th>
+                <th style="text-align:center">Accept</th>
+                <th style="text-align:center">Reject</th>
               </tr>
             </thead>
             <tfoot>
               <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Phone Number</th>
-                <th>Package Source</th>
-                <th>Package Destination</th>
-                <th>Deliver Date</th>
-                <th>Start Time</th>
-                <th>Accept</th>
-                <th>Reject</th>
+                <th style="text-align:center">Id</th>
+                <th style="text-align:center">Name</th>
+                <th style="text-align:center">Phone Number</th>
+                <th style="text-align:center">Package Source</th>
+                <th style="text-align:center">Package Destination</th>
+                <th style="text-align:center">Deliver Date</th>
+                <th style="text-align:center">Start Time</th>
+                <th style="text-align:center">Accept</th>
+                <th style="text-align:center">Reject</th>
               </tr>
             </tfoot>
             <tbody>
               <tr *ngFor="let userReq of getRequestObject | filterAll:searchString" >
-                <td>{{userReq.TransactionId}}</td>
-                <td>{{userReq.UserName | titlecase}}</td>
-                <td>{{userReq.PhoneNo}} </td>
-                <td>{{userReq.Source | titlecase}}</td>
-                <td>{{userReq.Destination | titlecase}}</td>
-                <td>{{userReq.DeliverDate | date:'dd-MM-yyyy'}}</td>
-                <td>{{userReq.StartTime | timeformat}}</td>
+                <td style="text-align:center">{{userReq.TransactionId}}</td>
+                <td style="text-align:center">{{userReq.UserName | titlecase}}</td>
+                <td style="text-align:center">{{userReq.PhoneNo}} </td>
+                <td style="text-align:center">{{userReq.Source | titlecase}}</td>
+                <td style="text-align:center">{{userReq.Destination | titlecase}}</td>
+                <td style="text-align:center">{{userReq.DeliverDate | date:'dd-MM-yyyy'}}</td>
+                <td style="text-align:center">{{userReq.StartTime | timeformat}}</td>
 
 
-                <td> <button class="btn btn-primary btn-sm" style="background-color:lightseagreen" (click)="acceptOrder( userReq.UserRequestId)" >Accept</button></td>
-                <td> <button class="btn btn-danger btn-sm" style="background-color: crimson;" (click)="updateStatus( userReq.UserRequestId)" >Remove</button></td>
+                <td style="text-align:center"> <button class="btn btn-primary btn-sm" style="background-color:lightseagreen" (click)="acceptOrder( userReq.UserRequestId)" >Accept</button></td>
+                <td style="text-align:center"> <button class="btn btn-danger btn-sm" style="background-color: crimson;" (click)="updateStatus( userReq.UserRequestId)" >Remove</button></td>
               </tr> 
             </tbody>
             
