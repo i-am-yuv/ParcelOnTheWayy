@@ -82,6 +82,10 @@ export class LoginComponent implements OnInit
       res => 
       {       console.log(res) ;
               sessionStorage.setItem('travellerId' , res.travellerId ) ;
+              if(sessionStorage.getItem('travellerId')!=null)
+              {
+                this.router.navigate(["user/traveller"]);
+              }
       }
       , error => {
           console.log(error) ;
