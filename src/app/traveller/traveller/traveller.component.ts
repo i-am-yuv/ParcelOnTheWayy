@@ -69,7 +69,7 @@ updateStatus(UserRequestId : number )
        console.log(res) ;
         this.ngOnInit() ;
         this.toast.success({detail:"SUCCESS",summary:'Request Removed Successfully',duration:2000});
-    
+        window.location.reload();
       }
     , err => {
             console.log(err) ;
