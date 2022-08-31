@@ -17,6 +17,7 @@ import { MessageComponent } from './user/message/message.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { SearchComponent } from './user/search/search.component';
 import { SeeDetailsComponent } from './user/see-details/see-details.component';
+import { UserOrderDetailsComponent } from './user/userorderdetails/user-order-details.component';
 
 import { UserComponent } from './user/user/user.component';
 
@@ -40,7 +41,8 @@ const routes: Routes = [
  {path:"user/traveller/travellerAadhar/edit" , component:EditUserTravellerAadharComponent},
  {path:"user/traveller/travellerProfile/vehicleDetails/edit", component:EditVehicleDetailsComponent},
   {path:"user/seeDetails" ,component:SeeDetailsComponent},
-  {path:"",component:MessageComponent}
+  {path:"",component:MessageComponent},
+  {path:"user/userOrderDetails", component:UserOrderDetailsComponent}
 ];
 
 @NgModule({

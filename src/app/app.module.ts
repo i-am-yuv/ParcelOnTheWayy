@@ -16,6 +16,7 @@ import { OrdersComponent } from './traveller/orders/orders.component';
 import { AdduserComponent } from './user/adduser/adduser.component';
 import { AddTravellerComponent } from './traveller/add-traveller/add-traveller.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserOrderDetailsComponent } from './user/userorderdetails/user-order-details.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -56,6 +57,7 @@ import { TimeFormatPipe } from './TimeFormatPipe';
     EditVehicleDetailsComponent,
     SeeDetailsComponent,
     MessageComponent,
+    UserOrderDetailsComponent,
     TimeFormatPipe
   ],
   imports: [
