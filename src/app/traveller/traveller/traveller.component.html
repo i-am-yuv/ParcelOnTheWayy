@@ -87,8 +87,8 @@
                 <td>{{userReq.PhoneNo}} </td>
                 <td>{{userReq.Source}}</td>
                 <td>{{userReq.Destination}}</td>
-                <td>{{userReq.DeliverDate}} </td>
-                <td>{{userReq.StartTime}} </td>
+                <td>{{userReq.DeliverDate |date:'dd-MM-yyyy' }} </td>
+                <td>{{userReq.StartTime|timeformat}} </td>
                 <td> <button class="btn btn-primary btn-sm" style="background-color:lightseagreen" (click)="acceptOrder( userReq.userRequestId)" >Accept</button></td>
                 <td> <button class="btn btn-danger btn-sm" style="background-color: crimson;" (click)="updateStatus( userReq.userRequestId)" >Remove</button></td>
               </tr> 
