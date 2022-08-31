@@ -10,6 +10,6 @@ export class UserOrderDetails
     orderPickUpLocation !: String ;
     orderDropLocation !: String ;
 
-    TravellerName !: String ;
-    TravellerMobileNumber !: String ;
+    travellerName !: String ;
+    travellerMobileNumber !: String ;
 }

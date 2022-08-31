@@ -30,7 +30,7 @@ export class UserOrderDetailsComponent implements OnInit {
   
   orderDetails()
    {
-    this.http.get<any>(  `${this.apiUrl}/getUserOrderDetails/`+sessionStorage.getItem('userId') ).subscribe(
+    this.http.get<any>(  `${this.apiUrl}/getUserOrderDetails/`+sessionStorage.getItem('userID') ).subscribe(
       res => 
       {
           this.orderObj = res ;
