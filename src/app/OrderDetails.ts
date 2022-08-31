@@ -1,7 +1,8 @@
 export class OrderDetails
 {
     orderId !: number ;
-    orderDate !: Date;
+    deliverDate !: Date ;
+    
     orderStatus !:String;
     
     orderStartTime !: number;

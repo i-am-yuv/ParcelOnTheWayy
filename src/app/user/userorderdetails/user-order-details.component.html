@@ -67,7 +67,7 @@
                   <th style="text-align:center">Traveller Phone Number</th>
                   <th style="text-align:center">Order PickUp Location</th>
                   <th style="text-align:center">Order Drop Location</th>
-                  <th style="text-align:center">Order Date</th>
+                  <th style="text-align:center; width:100px">Order Date</th>
                   <th style="text-align:center">Order Start Time</th>
                   <th style="text-align:center">Order End Time</th>
                   <th style="text-align:center">Order Status</th>
@@ -80,7 +80,7 @@
                   <td style="text-align:center">{{ key.travellerMobileNumber}}</td>
                   <td style="text-align:center">{{ key.orderPickUpLocation}}</td>   
                   <td style="text-align:center">{{ key.orderDropLocation}}</td>
-                  <td style="text-align:center">{{ key.orderDate |date:'dd-MM-yyyy'}}</td>
+                  <td style="text-align:center ; width:100px">{{ key.deliverDate |date:'dd-MM-yyyy'}}</td>
                   <td style="text-align:center">{{ key.orderStartTime| timeformat}}</td>
                   <td style="text-align:center">{{ key.orderEndTime | timeformat}}</td>
                   <td style="text-align:center">{{ key.orderStatus}}</td>

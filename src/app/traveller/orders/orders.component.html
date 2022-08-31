@@ -16,7 +16,7 @@
 </nav>
 
 <div class="container" >
-    <h3 style="text-align:center ; margin-bottom: 25px ;text-decoration: underline ; margin-top:15px;" >Order Details</h3>
+    <h3 style="text-align:center ; margin-bottom: 25px ;text-decoration: underline ; margin-top:15px;" >Traveller Order Details</h3>
   </div>
 
 
@@ -56,9 +56,9 @@
                 <th style="text-align:center">Order Drop Location</th>
                 <th style="text-align:center">Order Start Time</th>
                 <th style="text-align:center">Order End Time</th>
-                <th style="text-align:center">Order Date</th>
+                <th style="text-align:center ; width:100px">Order Date</th>
                 <th style="text-align:center">Order Status</th>
-                <th style="text-align:center">Order Completed</th>
+                <th style="text-align:center">Change Order Status</th>
               </tr>
             </thead>
             <tfoot>
@@ -70,9 +70,9 @@
                 <th style="text-align:center">Order Drop Location</th>
                 <th style="text-align:center">Order Start Time</th>
                 <th style="text-align:center">Order End Time</th>
-                <th style="text-align:center">Order Date</th>
+                <th style="text-align:center ; width:100px">Order Date</th>
                 <th style="text-align:center">Order Status</th>
-                <th style="text-align:center">Order Completed</th>
+                <th style="text-align:center">Change Order Status</th>
               </tr>
             </tfoot>
             <tbody>
@@ -84,7 +84,7 @@
                     <td style="text-align:center">{{ key.orderDropLocation}}</td>
                     <td style="text-align:center">{{ key.orderStartTime| timeformat}}</td>
                     <td style="text-align:center">{{ key.orderEndTime | timeformat}}</td>
-                    <td style="text-align:center">{{ key.orderDate |date:'dd-MM-yyyy'}}</td>
+                    <td style="text-align:center ; width:100px">{{ key.deliverDate |date:'dd-MM-yyyy'}}</td>
                     <td style="text-align:center">{{ key.orderStatus}}</td>
                     <td style="text-align:center"> <button class="btn btn-primary btn-sm" style="background-color:lightseagreen"  >Delivered</button></td>
                   </tr>
