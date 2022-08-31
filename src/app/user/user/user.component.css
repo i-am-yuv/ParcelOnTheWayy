@@ -19,17 +19,20 @@ li{   text-align: center;
         margin-bottom: 100px;
         height: 200px;
         width: 50%;
+        border-radius: 15px;
         background-color: powderblue;
  } 
 
- th{
-    text-align: center;
- }
- td{
-    text-align: center;
- }
+ tr:hover {
+    background-color: #aec0bd;
+  }
  
-
- tr{
-    height: 10px;
+ th, td {
+    border: 1px solid black;
+    
+    text-align: center;
+  }
+ 
+ table {
+    border-radius:6px;
  }
