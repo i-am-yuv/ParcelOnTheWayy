@@ -61,9 +61,9 @@ getTravellerRequests()
  )
 }
 
-updateStatus(userRequestId : number )
+updateStatus(UserRequestId : number )
 {
-  this.http.put<any[]>(  `${this.apiUrl}/orderDetails/reject/`+userRequestId , null ).subscribe(
+  this.http.put<any[]>(  `${this.apiUrl}/orderDetails/reject/`+UserRequestId , null ).subscribe(
     res => 
       {
        console.log(res) ;
@@ -76,9 +76,9 @@ updateStatus(userRequestId : number )
         }
   )
 }
-acceptOrder( userRequestId : number )
+acceptOrder( UserRequestId : number )
 {
-  this.http.post<any[]>(  `${this.apiUrl}/orderDetails/accept/`+userRequestId , null ).subscribe(
+  this.http.post<any[]>(  `${this.apiUrl}/orderDetails/accept/`+UserRequestId , null ).subscribe(
     res => 
       {
        console.log(res) ;
