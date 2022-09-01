@@ -23,6 +23,7 @@ export class SeeDetailsComponent implements OnInit {
   vehicleNo!: String;
   addressObj: Address = new Address();
   travellerObj: Traveller = new Traveller;
+  ratingObj : any ;
   btnVisible: Boolean = true;
   formValues = new FormGroup({
 
@@ -50,13 +51,15 @@ export class SeeDetailsComponent implements OnInit {
     }
 
     this.populateProfile();
+    this.populateRating() ;
   }
   populateProfile() {
-    this.http.get<any>(`${this.apiUrl}/travellerPersonalDetails/` + sessionStorage.getItem('seeTravellerId')).subscribe(
+    this.http.get<any>(`${this.apiUrl}/travellerPersonalDetails/` +sessionStorage.getItem('seeTravellerId')).subscribe(
       res => { //this.formValues.firstName=res.firstName;
         this.userObj.firstName = res.firstName;
         this.userObj.lastName = res.lastName;
         this.userObj.mobileNo = res.mobileNo;
+      
         console.log(this.userObj);
         this.vehicleNo = sessionStorage.getItem("seeVehicleNo")!;
         console.log(this.vehicleNo);
@@ -89,12 +92,26 @@ export class SeeDetailsComponent implements OnInit {
     this.http.get<any>(`${this.apiUrl}/traveller/view/` + sessionStorage.getItem('seeTravellerId')).subscribe(
       res => {
         this.travellerObj.aadharno = res.aadharno;
+        
       }
       , err => {
         // this.toast.error({detail:"ERROR",summary:'Something Went Wrong',duration:5000});
         console.log(err);
       }
     )
+  }
+  populateRating()
+  {
+   this.http.get<any>(  `${this.apiUrl}/getTravellerRating/`+sessionStorage.getItem('seeTravellerId') ).subscribe(
+     res => 
+     {
+         console.log(res);
+         this.ratingObj = res ;
+     }
+     , err => {
+       console.log(err) ;
+     }
+   )
   }
 
   logOut() {

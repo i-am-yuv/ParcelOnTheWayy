@@ -26,6 +26,8 @@ export class TravellerProfileComponent implements OnInit {
   btnVisible : Boolean = true ; 
   travellerObj : Traveller = new Traveller();
 
+  ratingObj : any ;
+
   constructor(private formBuilder : FormBuilder , private http : HttpClient , private router : Router , private toast: NgToastService) { 
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
@@ -42,6 +44,7 @@ export class TravellerProfileComponent implements OnInit {
     this.populateProfile() ; 
     this.getAadharNo() ;
     this.populateVehicle();
+    this.populateRating() ;
   }
 
   populateProfile()
@@ -101,6 +104,21 @@ export class TravellerProfileComponent implements OnInit {
       }
     )
    }
+
+   populateRating()
+   {
+    this.http.get<any>(  `${this.apiUrl}/getTravellerRating/`+sessionStorage.getItem('travellerId') ).subscribe(
+      res => 
+      {
+          console.log(res);
+          this.ratingObj = res ;
+      }
+      , err => {
+        console.log(err) ;
+      }
+    )
+   }
+
 
    deleteVehicle(vehicleId : number) {
     this.http.delete<any>( `${this.apiUrl}/vehicle/`+vehicleId).subscribe(
