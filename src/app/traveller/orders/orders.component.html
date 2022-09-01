@@ -58,7 +58,7 @@
                 <th style="text-align:center">Order End Time</th>
                 <th style="text-align:center ; width:100px">Order Date</th>
                 <th style="text-align:center">Order Status</th>
-                <th style="text-align:center">Change Order Status</th>
+                <th style="text-align:center ; width:200px">Change Order Status</th>
               </tr>
             </thead>
             <tfoot>
@@ -72,7 +72,7 @@
                 <th style="text-align:center">Order End Time</th>
                 <th style="text-align:center ; width:100px">Order Date</th>
                 <th style="text-align:center">Order Status</th>
-                <th style="text-align:center">Change Order Status</th>
+                <th style="text-align:center ; width:200px">Change Order Status</th>
               </tr>
             </tfoot>
             <tbody>
@@ -86,7 +86,10 @@
                     <td style="text-align:center">{{ key.orderEndTime | timeformat}}</td>
                     <td style="text-align:center ; width:100px">{{ key.deliverDate |date:'dd-MM-yyyy'}}</td>
                     <td style="text-align:center">{{ key.orderStatus}}</td>
-                    <td style="text-align:center"> <button class="btn btn-primary btn-sm" style="background-color:lightseagreen"  >Delivered</button></td>
+                    <td style="text-align:center ; width:200px">
+                      <button class="btn btn-primary btn-sm" style="background-color:lightseagreen ; margin-right: 10px;" (click)="updateStatus(key.orderId, 'In Process' )" >In Process</button>
+                      <button class="btn btn-primary btn-sm" style="background-color:lightseagreen" (click)="updateStatus(key.orderId, 'Delivered' )">Delivered</button>
+                    </td>
                   </tr>
             </tbody>
           </table>

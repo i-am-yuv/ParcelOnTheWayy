@@ -64,12 +64,11 @@ export class LoginComponent implements OnInit
               sessionStorage.setItem('IdOfAddress' , res.addressId ) ;
               sessionStorage.setItem('userID' , res.userid ) ;
               sessionStorage.setItem( 'addBtnVisible' , 'false' ) ;
-              this.router.navigate(["user"]);
       }
       , error => {
            console.log( "In Error for jivesh") ;
            sessionStorage.setItem( 'addBtnVisible' , 'true' ) ;
-          this.router.navigate(["user"]);
+         
           console.log(error) ;
       }
     )
@@ -88,6 +87,7 @@ export class LoginComponent implements OnInit
               }
       }
       , error => {
+          this.router.navigate(["user"]);
           console.log(error) ;
       }
     )
