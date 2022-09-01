@@ -97,7 +97,7 @@
                 <option style="text-align:center ; font-weight: bold;" value="4">4</option>
                 <option style="text-align:center ; font-weight: bold;" selected value="5">5</option>
               </select>
-              <button type="submit" class="btn btn-success btn-sm" id="inputR" style="margin-top: 5px;"  >Rating</button>
+              <button type="submit" class="btn btn-success btn-sm" id="inputR" style="margin-top: 5px;" (click)="taskCompleted(key.orderId,'Completed')" >Rating</button>
             </form>
           </td>
           <td style="text-align:center" *ngIf="key.orderStatus!='Delivered'">

@@ -112,12 +112,15 @@ export class TravellerProfileComponent implements OnInit {
       {
           console.log(res);
           this.ratingObj = res ;
+         
       }
       , err => {
         console.log(err) ;
       }
     )
    }
+
+
 
 
    deleteVehicle(vehicleId : number) {

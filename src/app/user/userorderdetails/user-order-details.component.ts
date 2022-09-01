@@ -66,6 +66,22 @@ export class UserOrderDetailsComponent implements OnInit {
       }
     )
    }
+   taskCompleted( orderId : number , status : String )
+   {
+     this.http.put<any>(  `${this.apiUrl}/orderDetails/edit/`+orderId+"/"+status , null ).subscribe(
+      res => 
+      {
+          console.log(res) ;
+          this.ngOnInit() ;
+          this.toast.success({detail:"SUCCESS",summary:'Status Change Successfully',duration:2000}) ;
+      }
+      , err => {
+      
+        console.log(err) ;
+      }
+    )
+   }
+   
  
 }
 
