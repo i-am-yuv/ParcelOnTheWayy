@@ -1,6 +1,7 @@
 export class UserOrderDetails
 {
     orderId !: number ;
+    travellerId !: number ;
     deliverDate !: Date ;
     orderStatus !:String;
     

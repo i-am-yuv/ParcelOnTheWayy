@@ -19,12 +19,19 @@ export class UserOrderDetailsComponent implements OnInit {
 
   public searchString!: string;
 
-    
+  isRatingVisible : Boolean = true ;
+
+  public formValues !: FormGroup ;
+  
   constructor( private formBuilder : FormBuilder , private http : HttpClient , private router : Router , private toast: NgToastService )
    { }
 
   ngOnInit(): void 
   {
+    this.formValues = this.formBuilder.group(
+      {
+        rating : ['', Validators.required]
+      })
     this.orderDetails() ;
   }
   
@@ -39,6 +46,22 @@ export class UserOrderDetailsComponent implements OnInit {
       }
       , err => {
       
+        console.log(err) ;
+      }
+    )
+   }
+
+   giveRating(travellerId : number )
+   {
+    this.http.post<any>( `${this.apiUrl}/addRating/`+travellerId+"/"+this.formValues.value.rating , null ).subscribe(
+      res => 
+      {
+          console.log(res) ;  
+          this.toast.success({detail:"Thanks For Using Our Application",summary:'your rating sent Successfully',duration:5000});
+            
+      }
+      , err => {
+        this.toast.warning({detail:"Error",summary:'Please Select Your Rating',duration:5000});
         console.log(err) ;
       }
     )
