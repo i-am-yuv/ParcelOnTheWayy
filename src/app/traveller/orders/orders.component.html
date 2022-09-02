@@ -86,9 +86,12 @@
                     <td style="text-align:center">{{ key.orderEndTime | timeformat}}</td>
                     <td style="text-align:center ; width:100px">{{ key.deliverDate |date:'dd-MM-yyyy'}}</td>
                     <td style="text-align:center">{{ key.orderStatus}}</td>
-                    <td style="text-align:center ; width:200px">
+                    <td style="text-align:center ; width:200px" *ngIf="key.orderStatus!='Completed' ">
                       <button class="btn btn-primary btn-sm" style="background-color:lightseagreen ; margin-right: 10px;" (click)="updateStatus(key.orderId, 'In Process' )" >In Process</button>
                       <button class="btn btn-primary btn-sm" style="background-color:lightseagreen" (click)="updateStatus(key.orderId, 'Delivered' )">Delivered</button>
+                    </td>
+                    <td style="text-align:center ; width:200px" *ngIf="key.orderStatus==='Completed' ">
+                      <button type="button" class="btn btn-success btn-sm" [disabled]="true" >Completed</button>
                     </td>
                   </tr>
             </tbody>

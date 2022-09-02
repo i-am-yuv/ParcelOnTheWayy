@@ -51,14 +51,15 @@ export class UserOrderDetailsComponent implements OnInit {
     )
    }
 
-   giveRating(travellerId : number )
+   giveRating(travellerId : number , orderId : number  )
    {
     this.http.post<any>( `${this.apiUrl}/addRating/`+travellerId+"/"+this.formValues.value.rating , null ).subscribe(
       res => 
       {
-          console.log(res) ;  
+          console.log(res) ; 
           this.toast.success({detail:"Thanks For Using Our Application",summary:'your rating sent Successfully',duration:5000});
-            
+          console.log("Rating given") ;
+          this.taskCompleted( orderId , 'Completed')  ;
       }
       , err => {
         this.toast.warning({detail:"Error",summary:'Please Select Your Rating',duration:5000});
@@ -66,6 +67,7 @@ export class UserOrderDetailsComponent implements OnInit {
       }
     )
    }
+   
    taskCompleted( orderId : number , status : String )
    {
      this.http.put<any>(  `${this.apiUrl}/orderDetails/edit/`+orderId+"/"+status , null ).subscribe(
@@ -73,7 +75,7 @@ export class UserOrderDetailsComponent implements OnInit {
       {
           console.log(res) ;
           this.ngOnInit() ;
-          this.toast.success({detail:"SUCCESS",summary:'Status Change Successfully',duration:2000}) ;
+          console.log("status changed") ;
       }
       , err => {
       

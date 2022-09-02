@@ -89,7 +89,7 @@
           <td style="text-align:center">{{ key.orderStatus}}</td>
 
           <td  style="text-align:center ; width:120px" *ngIf="key.orderStatus==='Delivered' ">
-            <form [formGroup] ="formValues"  (ngSubmit)= "giveRating(key.travellerId)" >
+            <form [formGroup] ="formValues"  (ngSubmit)= "giveRating(key.travellerId,key.orderId)" >
               <select formControlName="rating" id="inputS" class="form-select" title="Select" >
                 <option style="text-align:center;font-weight: bold;" value="1">1</option>
                 <option  style="text-align:center;font-weight: bold;" value="2">2</option>
@@ -97,10 +97,13 @@
                 <option style="text-align:center ; font-weight: bold;" value="4">4</option>
                 <option style="text-align:center ; font-weight: bold;" selected value="5">5</option>
               </select>
-              <button type="submit" class="btn btn-success btn-sm" id="inputR" style="margin-top: 5px;" (click)="taskCompleted(key.orderId,'Completed')" >Rating</button>
+              <button type="submit" class="btn btn-success btn-sm" id="inputR" style="margin-top: 5px;"  >Rating</button>
             </form>
           </td>
-          <td style="text-align:center" *ngIf="key.orderStatus!='Delivered'">
+          <td style="text-align:center" *ngIf="key.orderStatus==='Completed'">
+            <button type="button" class="btn btn-secondary btn-sm" [disabled]=true>Given</button>
+          </td>
+          <td style="text-align:center" *ngIf="key.orderStatus!='Completed'&& key.orderStatus!='Delivered'">
             <button type="button" class="btn btn-secondary btn-sm" [disabled]=true>Rating</button>
           </td>
         </tr>
