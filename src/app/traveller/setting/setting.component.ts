@@ -1,3 +1,5 @@
+
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -7,12 +9,13 @@ import { Traveller } from 'src/app/Traveller';
 import { Vehicle_add} from 'src/app/Vehicle_add';
 import { environment } from 'src/environments/environment';
 
+
 @Component({
-  selector: 'app-add-traveller',
-  templateUrl: './add-traveller.component.html',
-  styleUrls: ['./add-traveller.component.css']
+  selector: 'app-setting',
+  templateUrl: './setting.component.html',
+  styleUrls: ['./setting.component.css']
 })
-export class AddTravellerComponent implements OnInit 
+export class SettingComponent implements OnInit 
 {
   private apiUrl = environment.apiBasedUrl;
   public formValues !: FormGroup;
@@ -66,9 +69,19 @@ export class AddTravellerComponent implements OnInit
       , err => {
         console.log(err);
         this.formValues.reset();
-        this.toast.error({detail:"ERROR",summary:'Something Went Wrong!!',duration:5000});
+        this.toast.error({detail:"ERROR",summary:'Please Fill 12 Digit Aadhar Number!!',duration:5000});
       }
     )
+  }
+  logOut()
+  {
+    if (confirm("Sure , you want to log out") == true) { 
+    sessionStorage.clear() ;
+    this.toast.success({detail:"SUCCESS",summary:'Log Out Successfully',duration:2000});
+    this.router.navigate(["login"]);
+    }
+    else{
+    }
   }
 
   addVehicle()
@@ -104,3 +117,4 @@ export class AddTravellerComponent implements OnInit
 
 
 }
+

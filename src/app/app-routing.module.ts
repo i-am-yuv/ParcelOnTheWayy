@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './authentication/about/about.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
-import { AddTravellerComponent } from './traveller/add-traveller/add-traveller.component';
 import { CreateTransactionComponent } from './traveller/create-transaction/create-transaction.component';
 import { EditUserTravellerAadharComponent } from './traveller/edit-user-traveller-aadhar/edit-user-traveller-aadhar.component';
 import { EditUserTravellerComponent } from './traveller/edit-user-traveller/edit-user-traveller.component';
@@ -20,6 +19,7 @@ import { SeeDetailsComponent } from './user/see-details/see-details.component';
 import { UserOrderDetailsComponent } from './user/userorderdetails/user-order-details.component';
 
 import { UserComponent } from './user/user/user.component';
+import { SettingComponent } from './traveller/setting/setting.component';
 
 
 const routes: Routes = [
@@ -35,14 +35,14 @@ const routes: Routes = [
  {path:"user/traveller/createTransaction" , component:CreateTransactionComponent } ,
  { path :"user/traveller/travellerProfile" , component:TravellerProfileComponent },
  { path : "user/traveller/orders" , component:OrdersComponent },
- {path:"user/traveller/addTravellerDetails" , component:AddTravellerComponent },
  {path:"user/profile/edit" , component:EdituserComponent },
  {path:"user/traveller/travellerProfile/edit" , component:EditUserTravellerComponent},
  {path:"user/traveller/travellerAadhar/edit" , component:EditUserTravellerAadharComponent},
  {path:"user/traveller/travellerProfile/vehicleDetails/edit", component:EditVehicleDetailsComponent},
   {path:"user/seeDetails" ,component:SeeDetailsComponent},
   {path:"",component:MessageComponent},
-  {path:"user/userOrderDetails", component:UserOrderDetailsComponent}
+  {path:"user/userOrderDetails", component:UserOrderDetailsComponent},
+  {path:"user/traveller/setting" , component:SettingComponent }
 ];
 
 @NgModule({

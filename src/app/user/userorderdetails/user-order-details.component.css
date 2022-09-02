@@ -1,5 +1,8 @@
 .navbar{
     background-color: lightseagreen;
 }
+tr:hover {
+    background-color: #aec0bd;
+  }
 
 

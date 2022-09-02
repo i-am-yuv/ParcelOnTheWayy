@@ -14,7 +14,7 @@ import { CreateTransactionComponent } from './traveller/create-transaction/creat
 import { TravellerProfileComponent } from './traveller/traveller-profile/traveller-profile.component';
 import { OrdersComponent } from './traveller/orders/orders.component';
 import { AdduserComponent } from './user/adduser/adduser.component';
-import { AddTravellerComponent } from './traveller/add-traveller/add-traveller.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserOrderDetailsComponent } from './user/userorderdetails/user-order-details.component';
 
@@ -35,6 +35,7 @@ import {MatDialogModule } from '@angular/material/dialog';
 import { SeeDetailsComponent } from './user/see-details/see-details.component';
 import { MessageComponent } from './user/message/message.component';
 import { TimeFormatPipe } from './TimeFormatPipe';
+import { SettingComponent } from './traveller/setting/setting.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,6 @@ import { TimeFormatPipe } from './TimeFormatPipe';
     TravellerProfileComponent,
     OrdersComponent,
     AdduserComponent,
-    AddTravellerComponent,
     SearchComponent,
     EdituserComponent,
     EditUserTravellerComponent,
@@ -58,7 +58,8 @@ import { TimeFormatPipe } from './TimeFormatPipe';
     SeeDetailsComponent,
     MessageComponent,
     UserOrderDetailsComponent,
-    TimeFormatPipe
+    TimeFormatPipe,
+    SettingComponent
   ],
   imports: [
     BrowserModule,

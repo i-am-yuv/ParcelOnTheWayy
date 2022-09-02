@@ -36,16 +36,7 @@ export class TravellerComponent implements OnInit {
     
   }
 
-  logOut()
-  {
-    if (confirm("Sure , you want to log out") == true) { 
-    sessionStorage.clear() ;
-    this.toast.success({detail:"SUCCESS",summary:'Log Out Successfully',duration:2000});
-    this.router.navigate(["login"]);
-    }
-    else{
-    }
-  }
+
 getTravellerRequests()
 {
  this.http.get<any>(`${this.apiUrl}/userRequests/`+sessionStorage.getItem('travellerId') ).subscribe(
