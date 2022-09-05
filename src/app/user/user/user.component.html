@@ -63,7 +63,8 @@
               <th  style="text-align:center " >Traveller Name</th>
 							<th  style="text-align:center " >Start Location</th>
 							<th style="text-align:center">End Location</th>
-							<th style="text-align:center">Start Time</th>
+							<th style="text-align:center">Start Date</th>
+              <th style="text-align:center">Start Time</th>
 							<th style="text-align:center">Means of Transport</th>
 							<th style="text-align:center">Available Space</th>
 							<th style="text-align:center">Details</th>
@@ -71,10 +72,11 @@
 					</thead>
 					<tfoot>
 						<tr>
-              <th  style="text-align:center " >Traveller Name</th>
+              <th style="text-align:center">Traveller Name</th>
 							<th style="text-align:center">Start Location</th>
 							<th style="text-align:center">End Location</th>
-							<th style="text-align:center">Start Time</th>
+							<th style="text-align:center">Start Date</th>
+              <th style="text-align:center">Start Time</th>
 							<th style="text-align:center">Means of Transport</th>
 							<th style="text-align:center">Available Space</th>
 							<th style="text-align:center">Details</th>
@@ -86,7 +88,8 @@
               <td style="text-align:center">{{transaction.travellerName | titlecase}}</td>
 							<td style="text-align:center">{{transaction.startLocation | titlecase}}</td>
 							<td style="text-align:center">{{transaction.endLocation | titlecase}}</td>
-							<td style="text-align:center">{{transaction.startDate | date:'dd-MM-yyyy'}} <sub> ( Time:{{transaction.startTime | timeformat}} )</sub> </td>
+							<td style="text-align:center">{{transaction.startDate | date:'dd-MM-yyyy'}}</td>
+              <td style="text-align:center">{{transaction.startTime | timeformat}}</td>
               <td style="text-align:center">{{transaction.vehicleName | titlecase}}</td>
               <td style="text-align:center">{{transaction.availableSpace | titlecase}}</td>
               <td style="text-align:center"> <button class="btn btn-primary btn-sm" style="background-color:lightseagreen" (click)="seeDetails([transaction.travellerId,transaction.vehicleNo, transaction.transactionId])">Details</button></td>
