@@ -42,10 +42,11 @@ export class UserComponent implements OnInit {
 
 getActiveTravellers()
    {
-    this.http.get<any>(  `${this.apiUrl}/getActiveTravellers` ).subscribe(
+    this.http.get<any>(  `${this.apiUrl}/getActiveTravellers/`+ sessionStorage.getItem("loginId") ).subscribe(
       res => 
-      {
+      {   
          console.log(res);
+         console.log(sessionStorage.getItem("loginId"));
          this.transactions=res;
        console.log(this.transactions);
          
